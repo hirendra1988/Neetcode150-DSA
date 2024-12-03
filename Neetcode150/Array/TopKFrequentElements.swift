@@ -21,9 +21,32 @@ class TopKFrequentElements {
         print(result)
     }
     
-    // Time Complexity: O(nlogn) || Space Compelxity: O(n)
+    // Time Complexity: O(n) || Space Compelxity: O(n)
     func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
-        let nums = nums
+        var hashMap = [Int: Int]()
+        for num in nums {
+            hashMap[num, default: 0] += 1
+        }
+        var maxFreq = 0
+        for (_, value) in hashMap {
+            maxFreq = max(maxFreq, value)
+        }
+        var bucket = [[Int]](repeating: [Int](), count: maxFreq + 1)
+        for (key, value) in hashMap {
+            bucket[value].append(key)
+        }
+        var result = [Int]()
+        for i in stride(from: bucket.count - 1, through: 0, by: -1) {
+            result.append(contentsOf: bucket[i])
+            if result.count == k {
+                break
+            }
+        }
+        return result
+    }
+    
+    // Time Complexity: O(nlogn) || Space Compelxity: O(n)
+    func topKFrequent2(_ nums: [Int], _ k: Int) -> [Int] {
         var hashMap = [Int: Int]()
         for num in nums {
             hashMap[num, default: 0] += 1
