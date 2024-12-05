@@ -5,6 +5,8 @@
 //  Created by Hirendra Sharma on 05/12/24.
 //
 
+//https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+//https://neetcode.io/problems/two-integer-sum-ii
 class TwoSum2 {
     
     init() {
