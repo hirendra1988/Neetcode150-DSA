@@ -20,6 +20,7 @@ class TwoSum2 {
         print(result)
     }
     
+    // Time Complexity: O(n) || Space Compelxity: O(1)
     func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
         var left = 0
         var right = numbers.count - 1
