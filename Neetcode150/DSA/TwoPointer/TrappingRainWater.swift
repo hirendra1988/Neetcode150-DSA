@@ -5,6 +5,8 @@
 //  Created by Hirendra Sharma on 06/12/24.
 //
 
+//https://leetcode.com/problems/trapping-rain-water/
+//https://neetcode.io/problems/trapping-rain-water
 class TrappingRainWater {
     
     init() {
@@ -17,6 +19,7 @@ class TrappingRainWater {
         print(result)
     }
     
+    // Time Complexity: O(n) || Space Compelxity: O(n)
     func trap(_ height: [Int]) -> Int {
         var leftMax = [Int](repeating: 0, count: height.count)
         leftMax[0] = height[0]
@@ -31,10 +34,7 @@ class TrappingRainWater {
         for j in stride(from: height.count - 2, through: 0, by: -1) {
             rightMax[j] = max(rightMax[j+1], height[j])
         }
-        
-        print(leftMax)
-        print(rightMax)
-        
+
         var water = 0
         for k in 0..<height.count {
             let min = min(leftMax[k], rightMax[k])

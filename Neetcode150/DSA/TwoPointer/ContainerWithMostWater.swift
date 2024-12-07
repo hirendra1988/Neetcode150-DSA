@@ -5,6 +5,8 @@
 //  Created by Hirendra Sharma on 06/12/24.
 //
 
+//https://leetcode.com/problems/container-with-most-water/
+//https://neetcode.io/problems/max-water-container
 class ContainerWithMostWater {
     
     init() {
@@ -18,6 +20,7 @@ class ContainerWithMostWater {
         print(result)
     }
     
+    // Time Complexity: O(n) || Space Compelxity: O(1)
     func maxArea(_ height: [Int]) -> Int {
         var maxArea = 0
         var left = 0
