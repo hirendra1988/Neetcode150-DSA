@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/longest-consecutive-sequence/
 //https://neetcode.io/problems/longest-consecutive-sequence
+//https://www.youtube.com/watch?v=CBFn7zWMOBQ
 class LongestConsecutiveSequence {
     
     init() {
@@ -32,10 +33,8 @@ class LongestConsecutiveSequence {
         for num in setNums {
             if !setNums.contains(num-1) {
                 var count = 1
-                var currentNum = 1
-                while setNums.contains(num+currentNum) {
+                while setNums.contains(num+count) {
                     count += 1
-                    currentNum += 1
                 }
                 largest = max(largest, count)
             }
