@@ -26,10 +26,10 @@ class LongestRepeatingChar {
         var left = 0
         var maxFreq = 0
         var res = 0
-        for i in 0..<charArray.count  {
-            hashMap[charArray[i], default: 0] += 1
-            maxFreq = max(maxFreq, hashMap[charArray[i], default: 0])
-            let window = i - left + 1
+        for right in 0..<charArray.count  {
+            hashMap[charArray[right], default: 0] += 1
+            maxFreq = max(maxFreq, hashMap[charArray[right], default: 0])
+            let window = right - left + 1
             if (window - maxFreq) <= k {
                 res = max(res, window)
             } else {
