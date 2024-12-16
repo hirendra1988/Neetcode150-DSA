@@ -1,5 +1,5 @@
 //
-//  LongestRepeatingChar.swift
+//  LongestRepeatingCharReplacement.swift
 //  Neetcode150
 //
 //  Created by Hirendra Sharma on 08/12/24.
@@ -7,7 +7,8 @@
 
 //https://leetcode.com/problems/longest-repeating-character-replacement/
 //https://neetcode.io/problems/longest-repeating-substring-with-replacement
-class LongestRepeatingChar {
+//https://www.youtube.com/watch?v=y0-x7GSTzu0
+class LongestRepeatingCharReplacement {
     
     init() {
         runTest()

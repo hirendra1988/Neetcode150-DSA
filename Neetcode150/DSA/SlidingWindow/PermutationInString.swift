@@ -33,25 +33,25 @@ class PermutationInString {
         for char in s1CharArray {
             hashMap[char, default: 0] += 1
         }
-        var i = 0
-        var j = 0
+        var left = 0
+        var right = 0
         
-        while i < s2CharArray.count, j < s2CharArray.count {
-            if hashMap[s2CharArray[j]] != nil {
-                hashMap[s2CharArray[j], default: 0] -= 1
-                if hashMap[s2CharArray[j], default: 0] < 1 {
-                    hashMap[s2CharArray[j]] = nil
+        while left < s2CharArray.count, right < s2CharArray.count {
+            if hashMap[s2CharArray[right]] != nil {
+                hashMap[s2CharArray[right], default: 0] -= 1
+                if hashMap[s2CharArray[right], default: 0] < 1 {
+                    hashMap[s2CharArray[right]] = nil
                 }
                 if hashMap.isEmpty {
                     return true
                 }
-                j += 1
-            } else if i < j {
-                hashMap[s2CharArray[i], default: 0] += 1
-                i += 1
+                right += 1
+            } else if left < right {
+                hashMap[s2CharArray[left], default: 0] += 1
+                left += 1
             } else {
-                i += 1
-                j += 1
+                left += 1
+                right += 1
             }
         }
         
