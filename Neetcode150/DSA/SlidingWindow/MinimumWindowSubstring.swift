@@ -30,39 +30,36 @@ class MinimumWindowSubstring {
             hashMap[char, default: 0] += 1
         }
         
-        var i = 0
-        var j = 0
+        var left = 0
         var minLength = Int.max
         var matched = 0
         var start = 0
-        
-        while j < sCharArray.count {
-            
+    
+        for right in 0..<sCharArray.count {
             //update data
-            if let _ = hashMap[sCharArray[j]] {
-                hashMap[sCharArray[j], default: 0] -= 1
-                if hashMap[sCharArray[j], default: 0] >= 0 {
+            if let _ = hashMap[sCharArray[right]] {
+                hashMap[sCharArray[right], default: 0] -= 1
+                if hashMap[sCharArray[right], default: 0] >= 0 {
                     matched += 1
                 }
             }
             
             // shrink
             while matched == tCharArray.count {
-                if minLength > (j - i + 1) {
-                    minLength = j - i + 1
-                    start = i
+                let window =  right - left + 1
+                if minLength > window {
+                    minLength = window
+                    start = left
                 }
-                if let leftChar = hashMap[sCharArray[i]] {
+                if let leftChar = hashMap[sCharArray[left]] {
                     if leftChar == 0 {
                         matched -= 1
                     }
-                    hashMap[sCharArray[i], default: 0] += 1
+                    hashMap[sCharArray[left], default: 0] += 1
                 }
-                i += 1
+                left += 1
             }
-            j += 1
         }
-        
         return minLength == Int.max ? "" : String(sCharArray[start..<start + minLength])
     }
 
