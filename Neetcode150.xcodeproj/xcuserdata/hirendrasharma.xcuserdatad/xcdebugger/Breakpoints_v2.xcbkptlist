@@ -510,9 +510,9 @@
             filePath = "Neetcode150/DSA/Stack/LargestRectangle.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "largestRectangleArea(_:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "largestRectangleArea2(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -526,9 +526,9 @@
             filePath = "Neetcode150/DSA/Stack/LargestRectangle.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "largestRectangleArea(_:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "largestRectangleArea2(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -542,9 +542,9 @@
             filePath = "Neetcode150/DSA/Stack/LargestRectangle.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "largestRectangleArea(_:)"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "largestRectangleArea2(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -558,9 +558,9 @@
             filePath = "Neetcode150/DSA/Stack/LargestRectangle.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "largestRectangleArea(_:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "largestRectangleArea2(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

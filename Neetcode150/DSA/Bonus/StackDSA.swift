@@ -26,7 +26,7 @@ class StackDSA {
 //        let res = nextGreaterElement(array: array)
         
         //Output for next smaller: [10,4,12,4,2,2,-1,-1]
-       let array = [15,10,18,12,4,6,2,8] // next Greater
+       let array = [15,10,18,12,4,6,2,8] // next Smallest
                  
        let res = nextSmallerElement(array: array)
         

@@ -19,8 +19,45 @@ class LargestRectangle {
         print(res)
     }
     
-    // Time Complexity: O(n^2) || Space Compelxity: O(1)
+    //Time Complexity: O(n) || Space Compelxity: O(n)
     func largestRectangleArea(_ heights: [Int]) -> Int {
+        var stack = [Int]()
+        var prevSmallest = [Int](repeating: 0, count: heights.count)
+        
+        for i in 0..<heights.count {
+            while !stack.isEmpty, heights[stack.last!] >= heights[i] {
+                stack.removeLast()
+            }
+            if !stack.isEmpty {
+                prevSmallest[i] = stack.last! + 1
+            }
+            stack.append(i)
+        }
+        
+        var nextSmallest = [Int](repeating: 0, count: heights.count)
+        stack = [Int]()
+        
+        for j in stride(from: heights.count - 1, through: 0, by: -1) {
+            while !stack.isEmpty, heights[stack.last!] >= heights[j] {
+                stack.removeLast()
+            }
+            if !stack.isEmpty {
+                nextSmallest[j] = stack.last! - 1
+            } else {
+                nextSmallest[j] = heights.count - 1
+            }
+            stack.append(j)
+        }
+        var maxArea = 0
+        for k in 0..<heights.count {
+            let curArea = (nextSmallest[k] - prevSmallest[k] + 1) * heights[k]
+            maxArea = max(maxArea, curArea)
+        }
+        return maxArea
+    }
+    
+    // Time Complexity: O(n^2) || Space Compelxity: O(1)
+    func largestRectangleArea2(_ heights: [Int]) -> Int {
         if heights.isEmpty {
             return 0
         }
