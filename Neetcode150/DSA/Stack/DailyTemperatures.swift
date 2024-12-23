@@ -19,18 +19,24 @@ class DailyTemperatures {
         print(res)
     }
     
+    // Next greater element approach
     //Time Complexity: O(n) || Space Compelxity: O(n)
     func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
         var stack = [Int]()
-        var answer = [Int](repeating: 0, count: temperatures.count)
-        
-        for i in 0..<temperatures.count {
-            while let last = stack.last, temperatures[last] < temperatures[i] {
+        stack.append(temperatures.count - 1)
+        var result = [Int](repeating: 0, count: temperatures.count)
+        result[temperatures.count - 1] = 0
+        for i in stride(from: temperatures.count - 2, through: 0, by: -1) {
+            while !stack.isEmpty, temperatures[stack.last!] <= temperatures[i] {
                 stack.popLast()
-                answer[last] = i - last
+            }
+            if let last = stack.last {
+                result[i] = last - i
+            } else  {
+                result[i] = 0
             }
             stack.append(i)
         }
-        return answer
+        return result
     }
 }
