@@ -14,7 +14,8 @@ class PermutationInString {
     }
     
     func runTest() {
-        let s1 = "ab", s2 = "eidboaoo"
+        let s1 = "ab", s2 = "eidbaooo"
+        //let s1 = "ab", s2 = "eidboaoo" to check left < right condition
         let result = checkInclusion(s1, s2)
         print(result)
     }
