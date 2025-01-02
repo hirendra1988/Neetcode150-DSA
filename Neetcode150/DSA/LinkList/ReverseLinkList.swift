@@ -19,6 +19,8 @@ class ReverseLinkList {
     }
     
     init() {
+//        Input: head = [1,2,3,4,5]
+//        Output: [5,4,3,2,1]
         runTest()
     }
     
@@ -42,6 +44,7 @@ class ReverseLinkList {
         displayNode(node: resultNode)
     }
     
+    // Time Complexity: O(n) || Space Compelxity: O(1)
     func reverseList(_ head: ListNode?) -> ListNode? {
         var p1: ListNode? = nil
         var p2: ListNode? = head
