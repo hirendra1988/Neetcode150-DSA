@@ -5,6 +5,8 @@
 //  Created by Hirendra Sharma on 03/01/25.
 //
 
+//https://leetcode.com/problems/copy-list-with-random-pointer/
+//https://neetcode.io/problems/copy-linked-list-with-random-pointer
 class CopyListwithRandomPointer {
     
     class Node {
@@ -32,6 +34,7 @@ class CopyListwithRandomPointer {
         display(node: res)
     }
     
+    // Time Complexity: O(n) || Space Compelxity: O(n)
     func copyRandomList(_ head: Node?) -> Node? {
         guard let head = head else { return nil }
         

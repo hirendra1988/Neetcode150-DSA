@@ -5,6 +5,8 @@
 //  Created by Hirendra Sharma on 04/01/25.
 //
 
+//https://neetcode.io/problems/add-two-numbers
+//https://leetcode.com/problems/add-two-numbers/description/
 class AddTwoNumbers {
     
     class ListNode {
