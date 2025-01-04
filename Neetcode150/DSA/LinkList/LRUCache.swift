@@ -103,7 +103,7 @@ class LRUCache {
         head?.prev = node
         head = node
 
-        if tail == nil || tail === head {
+        if tail == nil {
             tail = head
         }
     }
