@@ -9,15 +9,6 @@
 //https://neetcode.io/problems/binary-tree-diameter
 class DiameterOfBinaryTree {
     
-    class TreeNode {
-        var left: TreeNode?
-        var right: TreeNode?
-        var val: Int
-        init(_ val: Int) {
-            self.val = val
-        }
-    }
-    
     init() {
 //        Input: root = [1,2,3,4,5]
 //        Output: 3
@@ -86,4 +77,13 @@ class DiameterOfBinaryTree {
         }
     }
     
+}
+
+class TreeNode {
+    var left: TreeNode?
+    var right: TreeNode?
+    var val: Int
+    init(_ val: Int) {
+        self.val = val
+    }
 }

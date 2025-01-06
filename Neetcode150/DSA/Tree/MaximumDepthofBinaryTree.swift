@@ -9,15 +9,6 @@
 //https://neetcode.io/problems/depth-of-binary-tree
 class MaximumDepthofBinaryTree {
     
-    class TreeNode {
-        var left: TreeNode?
-        var right: TreeNode?
-        var val: Int
-        init(_ val: Int) {
-            self.val = val
-        }
-    }
-    
     init() {
 //        Input: root = [3,9,20,null,null,15,7]
 //        Output: 3

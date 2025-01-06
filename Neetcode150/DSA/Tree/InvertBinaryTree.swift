@@ -9,15 +9,6 @@
 //https://neetcode.io/problems/invert-a-binary-tree
 class InvertBinaryTree {
     
-    class TreeNode {
-        var left: TreeNode?
-        var right: TreeNode?
-        var val: Int
-        init(_ val: Int) {
-            self.val = val
-        }
-    }
-    
     init() {
 //        Input: root = [4,2,7,1,3,6,9]
 //        Output: [4,7,2,9,6,3,1]
