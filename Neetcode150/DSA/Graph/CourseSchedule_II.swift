@@ -1,28 +1,28 @@
 //
-//  CourseSchedule.swift
+//  CourseSchedule_II.swift
 //  Neetcode150
 //
 //  Created by Hirendra Sharma on 16/01/25.
 //
 
-//https://leetcode.com/problems/course-schedule/
-//https://neetcode.io/problems/course-schedule
-class CourseSchedule {
+//https://leetcode.com/problems/course-schedule-ii/
+//https://neetcode.io/problems/course-schedule-ii
+class CourseSchedule_II {
     
     init() {
-//        Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
-//        Output: false
+//        Input: numCourses = 2, prerequisites = [[1,0]]
+//        Output: [0,1]
         runTest()
     }
     
     func runTest() {
-        let numCourses = 2, prerequisites = [[1,0],[0,1]]
-        let res = canFinish(numCourses, prerequisites)
+        let numCourses = 2, prerequisites = [[1,0]]
+        let res = findOrder(numCourses, prerequisites)
         print(res)
     }
     
     // Time Complexity: O(V+E) || Space Compelxity: O(V+E)
-    func canFinish(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+    func findOrder(_ numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
         var inDegrees = [Int](repeating: 0, count: numCourses)
         
         var adjacencyList = [[Int]](repeating: [], count: numCourses)
@@ -57,7 +57,7 @@ class CourseSchedule {
             }
             
         }
-        return array.count == numCourses
+        return array.count == numCourses ? array : []
     }
     
     func addDEdge(_ u: Int, _ v: Int, _ adj: inout [[Int]]) {
