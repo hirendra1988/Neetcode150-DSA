@@ -8,7 +8,7 @@
 //https://leetcode.com/problems/graph-valid-tree/description/
 //https://neetcode.io/problems/valid-tree
 class GraphValidTree {
-    
+    var parent = [Int]()
     init() {
         //        Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
         //        Output: true
@@ -21,8 +21,44 @@ class GraphValidTree {
         print(res)
     }
     
-    // Time Complexity: O(n) || Space Compelxity: O(n)
+    // Time Complexity: O(n) || Space Compelxity: O(n) // Using Union Find Approach
     func validTree(_ n: Int, _ edges: [[Int]]) -> Bool {
+        if edges.count != n - 1 {
+            return false
+        }
+        parent = Array(0..<n)
+        var rank = [Int](repeating: 0, count: n)
+        
+        for edge in edges {
+            let u = edge[0]
+            let v = edge[1]
+            let x = find(u)
+            let y = find(v)
+            if x == y {
+                return false
+            }
+            if parent[x] < parent[y] {
+                parent[x] = y
+            } else if parent[x] > parent[y] {
+                parent[y] = x
+            } else {
+                parent[y] = x
+                rank[x] += 1
+            }
+        }
+        return true
+    }
+    
+    func find(_ x: Int) -> Int {
+        if parent[x] == x {
+            return x
+        }
+        parent[x] = find(parent[x])
+        return parent[x]
+    }
+    
+    // Time Complexity: O(n) || Space Compelxity: O(n)
+    func validTree1(_ n: Int, _ edges: [[Int]]) -> Bool {
         // A tree with `n` nodes must have exactly `n - 1` edges
         if edges.count != n - 1 {
             return false
@@ -46,12 +82,12 @@ class GraphValidTree {
         return visited.allSatisfy { $0 }
         
         // OR
-//        for nodeVisited in visited {
-//            if !nodeVisited {
-//                return false
-//            }
-//        }
-//        return true
+        //        for nodeVisited in visited {
+        //            if !nodeVisited {
+        //                return false
+        //            }
+        //        }
+        //        return true
     }
     
     private func hasCycle(_ node: Int, _ parent: Int, _ graph: [[Int]], _ visited: inout [Bool]) -> Bool {
