@@ -7,12 +7,14 @@
 
 import UIKit
 
+//https://leetcode.com/problems/redundant-connection/
+//https://neetcode.io/problems/redundant-connection
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NumberOfConnectedComponents()
+        RedundantConnection()
        
     }
 
