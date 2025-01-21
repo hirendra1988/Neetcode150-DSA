@@ -31,14 +31,49 @@ class MinCostConnectAllPoints {
     }
     
     // Optimal Approcah
-//    func minCostConnectPoints(_ points: [[Int]]) -> Int {
-//        
-//    }
+    // Time Complexity: O(n^2 logn) || Space Compelxity: O(n^2)
+    func minCostConnectPoints(_ points: [[Int]]) -> Int {
+        let n = points.count
+        
+        var adj = [[Node]](repeating: [], count: n)
+        for i in 0..<points.count {
+            let x1 = points[i][0]
+            let y1 = points[i][1]
+            for j in i+1..<points.count {
+                let x2 = points[j][0]
+                let y2 = points[j][1]
+                let weight = abs(x1-x2) + abs(y1-y2)
+                addUEdge(i, j, weight, &adj)
+            }
+        }
+        
+        var mst = [Bool](repeating: false, count: n)
+        var keys = [Int](repeating: Int.max, count: n)
+        keys[0] = 0
+        var result = 0
+        for _ in 0..<n {
+            var vertex = -1
+            for j in 0..<n {
+                if !mst[j] && (vertex == -1 || keys[j] < keys[vertex]) {
+                    vertex = j
+                }
+            }
+            mst[vertex] = true
+            result += keys[vertex]
+            
+            for node in adj[vertex] {
+                if !mst[node.vertex] && node.weight < keys[node.vertex] {
+                    keys[node.vertex] = node.weight
+                }
+            }
+        }
+        return result
+    }
     
     // Graph Construction Time Complexity: O(n^2)
     // MST Construction Time Complexity: O(n^3)
     // Space Compelxity: O(n^2)
-    func minCostConnectPoints(_ points: [[Int]]) -> Int {
+    func minCostConnectPoints1(_ points: [[Int]]) -> Int {
         let n = points.count
         var adj = [[Node]](repeating: [], count: n)
         for i in 0..<points.count {
