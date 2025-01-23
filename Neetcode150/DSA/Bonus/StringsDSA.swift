@@ -18,6 +18,9 @@ class StringsDSA {
         // output: aBCDEFG
         let result = camelCaseDSAProblem(input: inputStr)
         print(result)
+        
+        let res = longestPalindrome("babad")
+        print(res)
     }
     
     func camelCaseDSAProblem(input: String) -> String {
@@ -34,6 +37,45 @@ class StringsDSA {
                 }
             } else {
                 foundSpecialChar = true
+            }
+        }
+        
+        return result
+    }
+    
+    //https://leetcode.com/problems/longest-palindromic-substring/
+    func longestPalindrome(_ s: String) -> String {
+        let chars = Array(s)
+        var result = ""
+        var resultLength = Int.min
+        for i in 0..<chars.count {
+            // Check for odd-length palindromes
+            var left = i
+            var right = i
+            while left >= 0, right < chars.count {
+                if chars[left] != chars[right] {
+                    break
+                }
+                if (right - left + 1) > resultLength {
+                    resultLength = right - left + 1
+                    result = String(chars[left...right])
+                }
+                left -= 1
+                right += 1
+            }
+            // Check for even-length palindromes
+            left = i
+            right = i + 1
+            while left >= 0, right < chars.count{
+                if chars[left] != chars[right] {
+                    break
+                }
+                if (right - left + 1) > resultLength {
+                    resultLength = right - left + 1
+                    result = String(chars[left...right])
+                }
+                left -= 1
+                right += 1
             }
         }
         
