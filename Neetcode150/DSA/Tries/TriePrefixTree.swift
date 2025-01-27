@@ -15,7 +15,7 @@ class TriePrefixTree {
     }
     
     func runTest() {
-        let trie = Trie()
+        let trie = Trie2()
         trie.insert("apple")
         print(trie.search("apple"))
         print(trie.search("app"))
@@ -65,6 +65,10 @@ class Trie {
         return searchAndStartWith(word, true)
     }
     
+    func startsWith(_ prefix: String) -> Bool {
+        return searchAndStartWith(prefix, false)
+    }
+    
     private func searchAndStartWith(_ word: String, _ isSearch: Bool) -> Bool {
         let wordChars = Array(word)
         var currentNode: Node = root
@@ -79,8 +83,53 @@ class Trie {
         }
         return isSearch ? currentNode.isEndOfWord : true
     }
+}
+
+// Using HashMap
+class Trie2 {
+    
+    class Node {
+        var next: [Character: Node] = [:]
+        var isEndOfWord: Bool = false
+    }
+    
+    var root: Node = Node()
+    
+    init() {
+        
+    }
+    
+    func insert(_ word: String) {
+        let wordChars = Array(word)
+        var currentNode: Node = root
+        for char in wordChars {
+            if currentNode.next[char] == nil {
+                let newNode = Node()
+                currentNode.next[char] = newNode
+            }
+            currentNode = currentNode.next[char]!
+        }
+        currentNode.isEndOfWord = true
+    }
+    
+    func search(_ word: String) -> Bool {
+        return searchAndStartWith(word, true)
+    }
     
     func startsWith(_ prefix: String) -> Bool {
         return searchAndStartWith(prefix, false)
     }
+    
+    func searchAndStartWith(_ word: String, _ isSearch: Bool) -> Bool {
+        let wordChars = Array(word)
+        var currentNode: Node = root
+        for char in wordChars {
+            if currentNode.next[char] == nil {
+                return false
+            }
+            currentNode = currentNode.next[char]!
+        }
+        return isSearch ? currentNode.isEndOfWord : true
+    }
+    
 }
