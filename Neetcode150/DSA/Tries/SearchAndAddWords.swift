@@ -40,6 +40,8 @@ class WordDictionary {
         
     }
     
+    //If the word has L characters, the time complexity is O(L).
+    //Space Complexity: O(S), where S is the total number of characters in all words added.
     func addWord(_ word: String) {
         let wordChars = Array(word)
         var currentNode: TrieNode? = root
@@ -52,6 +54,8 @@ class WordDictionary {
         currentNode?.isEndOfWord = true
     }
     
+    //Time: O(L) (best case), O(N) (worst case with wildcards).
+    //Space: O(L) (due to recursion depth).
     func dfs(_ s: Int, _ word: String, _ root: TrieNode?) -> Bool {
         let wordChars = Array(word)
         var currentNode: TrieNode? = root
