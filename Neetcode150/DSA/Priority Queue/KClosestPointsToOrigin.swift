@@ -16,7 +16,7 @@ class KClosestPointsToOrigin {
     }
     
     func runTest() {
-        let points = [[1,3],[-2,2]], k = 1
+        let points = [[3,3],[5,-1],[-2,4]], k = 2
         let res = kClosest(points, k)
         print(res)
     }
@@ -24,20 +24,17 @@ class KClosestPointsToOrigin {
     // MARK: Using MinHeap
     func kClosest(_ points: [[Int]], _ k: Int) -> [[Int]] {
         let maxHeap = MaxHeap()
-        
         // Insert points into the heap
         for point in points {
             let x = point[0]
             let y = point[1]
             let dist = x * x + y * y  // Calculate the squared distance
             maxHeap.push((dist, point))  // Insert the tuple (distance, x, y)
-            
             // If the heap size exceeds k, remove the largest element (max distance)
             if maxHeap.count > k {
                 maxHeap.pop()
             }
         }
-        
         // Prepare the result array by extracting the closest points
         var res: [[Int]] = []
         while let currentPoint = maxHeap.pop() {
@@ -118,10 +115,10 @@ class MaxHeap {
         let left = 2*index + 1
         let right = 2*index + 2
         
-        if left < count, heap[left].0 > heap[right].0 {
+        if left < count, heap[left].0 > heap[largest].0 {
             largest = left
         }
-        if right < count, heap[right].0 > heap[right].0 {
+        if right < count, heap[right].0 > heap[largest].0 {
             largest = right
         }
         
