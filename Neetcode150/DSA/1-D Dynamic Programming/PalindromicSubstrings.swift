@@ -24,7 +24,7 @@ class PalindromicSubstrings {
     
     //Time Complexity: O(n^2) || Space Compelxity: O(1)
     func countSubstrings(_ s: String) -> Int {
-        var sChars = Array(s)
+        let sChars = Array(s)
         var result = 0
         for i in 0..<sChars.count {
             // Odd

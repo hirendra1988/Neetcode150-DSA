@@ -24,7 +24,7 @@ class LongestPalindromicSubstring {
     
     //Time Complexity: O(n^2) || Space Compelxity: O(1)
     func longestPalindrome(_ s: String) -> String {
-        var chars = Array(s)
+        let chars = Array(s)
         var result = ""
         var resultLength = 0
         for i in 0..<chars.count {
