@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/partition-equal-subset-sum/
 //https://neetcode.io/problems/partition-equal-subset-sum
+//https://www.youtube.com/watch?v=W3OSNlSIJJM&t=3s
 class PartitionEqualSubsetSum {
     
     init() {
