@@ -22,8 +22,62 @@ class DecodeWays {
         print(res)
     }
     
+    // Using Memoization
     // Time Complexity: O(n) || Space Compelxity: O(n)
     func numDecodings(_ s: String) -> Int {
+        let sChars = Array(s)
+        var memo = [Int](repeating: 0, count: sChars.count + 1)
+        return numDecodingsHelper(sChars, 0, &memo)
+    }
+    
+    func numDecodingsHelper(_ sChars: [Character], _ index: Int, _ memo: inout [Int]) -> Int {
+        if index == sChars.count {
+            return 1
+        }
+        if sChars[index] == "0" {
+            return 0
+        }
+        
+        if memo[index] != 0 {
+            return memo[index]
+        }
+        
+        var count = numDecodingsHelper(sChars, index + 1, &memo)
+        if index < sChars.count - 1 {
+            let num = Int(String(sChars[index...index+1])) ?? 0
+            if num >= 10, num <= 26 {
+                count += numDecodingsHelper(sChars, index + 2, &memo)
+            }
+        }
+        memo[index] = count
+        return count
+    }
+    
+    // Using Normal Recursion
+    func numDecodings3(_ s: String) -> Int {
+        let sChars = Array(s)
+        return numDecodingsHelper3(sChars, 0)
+    }
+    
+    func numDecodingsHelper3(_ sChars: [Character], _ index: Int) -> Int {
+        if index == sChars.count {
+            return 1
+        }
+        if sChars[index] == "0" {
+            return 0
+        }
+        var count = numDecodingsHelper3(sChars, index + 1)
+        if index < sChars.count - 1 {
+            let num = Int(String(sChars[index...index+1])) ?? 0
+            if num >= 10, num <= 26 {
+                count += numDecodingsHelper3(sChars, index + 2)
+            }
+        }
+        return count
+    }
+    
+    // Time Complexity: O(n) || Space Compelxity: O(n)
+    func numDecodings1(_ s: String) -> Int {
         if s.isEmpty {
             return 0
         }
@@ -49,7 +103,7 @@ class DecodeWays {
     }
     
     // Time Complexity: O(n) || Space Compelxity: O(1)
-    func numDecodings1(_ s: String) -> Int {
+    func numDecodings2(_ s: String) -> Int {
         guard !s.isEmpty else { return 0 }
         
         let sChars = Array(s)
