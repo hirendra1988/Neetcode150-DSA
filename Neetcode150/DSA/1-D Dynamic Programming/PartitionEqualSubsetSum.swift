@@ -23,8 +23,68 @@ class PartitionEqualSubsetSum {
         print(res)
     }
     
-    //Time Complexity: O(n*target) || Space Compelxity: O(target)
+    // Using Memoization
+    // Time Complexity: O(n * sum/2) ≈ O(n * sum)
+    //Space Complexity: O(n * sum) (for memoization table) or O(n) (if optimized using bottom-up DP)
     func canPartition(_ nums: [Int]) -> Bool {
+        var sum = 0
+        for num in nums {
+            sum += num
+        }
+        if sum % 2 != 0 {
+            return false
+        }
+        let target = sum / 2
+        var memo: [[Bool?]] = Array(repeating: [Bool?](repeating: nil, count: target + 1), count: nums.count + 1)
+        return subsetSum(nums, nums.count, target, &memo)
+    }
+    
+    func subsetSum(_ nums: [Int], _ n: Int, _ sum: Int, _ memo: inout [[Bool?]]) -> Bool {
+        if n == 0 {
+            return false
+        }
+        if sum == 0 {
+            return true
+        }
+        if let res = memo[n][sum] {
+            return res
+        }
+        if nums[n-1] <= sum {
+            memo[n][sum] = subsetSum(nums, n-1, sum - nums[n-1], &memo) || subsetSum(nums, n-1, sum, &memo)
+        } else {
+            memo[n][sum] = subsetSum(nums, n-1, sum, &memo)
+        }
+        return memo[n][sum] ?? false
+    }
+    
+    // Using Recursion
+    //Time Complexity: O(2ⁿ) || Space Compelxity: O(n)
+    func canPartition2(_ nums: [Int]) -> Bool {
+        var sum = 0
+        for num in nums {
+            sum += num
+        }
+        if sum % 2 != 0 {
+            return false
+        }
+        return subsetSum2(nums, nums.count, sum / 2)
+    }
+    
+    func subsetSum2(_ nums: [Int], _ n: Int, _ sum: Int) -> Bool {
+        if n == 0 {
+            return false
+        }
+        if sum == 0 {
+            return true
+        }
+        if nums[n-1] <= sum {
+            return subsetSum2(nums, n-1, sum - nums[n-1]) || subsetSum2(nums, n-1, sum)
+        }
+        return subsetSum2(nums, n-1, sum)
+    }
+    
+    //Time Complexity: O(n*target) || Space Compelxity: O(target)
+    func canPartition1(_ nums: [Int]) -> Bool {
         var sum = 0
         for num in nums {
             sum += num
