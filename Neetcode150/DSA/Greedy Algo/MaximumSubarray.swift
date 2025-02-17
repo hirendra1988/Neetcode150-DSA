@@ -23,6 +23,7 @@ class MaximumSubarray {
     }
     
     // Using kadane'e algo
+    //Time Complexity: O(n) || Space Compelxity: O(1)
     func maxSubArray(_ nums: [Int]) -> Int {
         if nums.isEmpty {
             return 0
