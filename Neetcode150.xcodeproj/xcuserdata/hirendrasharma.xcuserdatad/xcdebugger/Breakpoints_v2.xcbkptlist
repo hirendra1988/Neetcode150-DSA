@@ -174,9 +174,9 @@
             filePath = "Neetcode150/DSA/Greedy Algo/HandOfStraights.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "isNStraightHand(_:_:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "isNStraightHand1(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

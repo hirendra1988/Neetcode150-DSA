@@ -21,7 +21,8 @@ class HandOfStraights {
         let res = isNStraightHand(hand, groupSize)
         print(res)
     }
-    
+
+    //Time Complexity: O(nlogn) || Space Compelxity: O(n)
     func isNStraightHand(_ hand: [Int], _ groupSize: Int) -> Bool {
         if hand.count % groupSize != 0 {
             return false
@@ -30,8 +31,33 @@ class HandOfStraights {
         for val in hand {
             hashMap[val, default: 0] += 1
         }
+        let sortedKeys = hand.sorted()
+        for key in sortedKeys {
+            if let count = hashMap[key], count <= 0 {
+                continue
+            }
+            for i in 0..<groupSize {
+                let newKey = key + i
+                if let numCount = hashMap[newKey], numCount > 0 {
+                    hashMap[newKey]! -= 1
+                } else {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+    //Time Complexity: O(nlogn) || Space Compelxity: O(n)
+    func isNStraightHand1(_ hand: [Int], _ groupSize: Int) -> Bool {
+        if hand.count % groupSize != 0 {
+            return false
+        }
+        var hashMap = [Int: Int]()
+        for val in hand {
+            hashMap[val, default: 0] += 1
+        }
         let sortedKeys = hashMap.keys.sorted()
-        
         for key in sortedKeys {
             guard let count = hashMap[key], count > 0 else {
                 continue
