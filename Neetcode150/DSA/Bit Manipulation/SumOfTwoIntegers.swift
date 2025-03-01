@@ -22,6 +22,8 @@ class SumOfTwoIntegers {
         print(res)
     }
     
+    //Time Complexity: O(n) || Space Compelxity: O(1)
+    //Where n is the number of bits in the integers (typically 32 for Int in Swift).
     func getSum(_ a: Int, _ b: Int) -> Int {
         var a = a
         var b = b
