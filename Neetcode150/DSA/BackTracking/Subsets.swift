@@ -37,6 +37,26 @@ class Subsets {
     }
     
     func backTracking(_ nums: [Int], _ result: inout [[Int]], _ tempSet: inout [Int], _ startIndex: Int) {
+        // ✅ Step 1: Add the current subset to the result
+        result.append(tempSet)
+        print(result)
+        // 🔁 Step 2: Iterate from startIndex to the end of array
+        for i in startIndex..<nums.count {
+            
+            // Including the number
+            tempSet.append(nums[i])
+            print(tempSet)
+            // Recursion to move forward with the next index
+            backTracking(nums, &result, &tempSet, i + 1)
+            
+            // Not including the number
+            // 🔙 Backtrack: Remove the last added element to explore the next option
+            print(tempSet)
+            tempSet.removeLast()
+        }
+    }
+
+    func backTracking1(_ nums: [Int], _ result: inout [[Int]], _ tempSet: inout [Int], _ startIndex: Int) {
         if startIndex == nums.count {
             result.append(tempSet)
             return
@@ -52,24 +72,6 @@ class Subsets {
         // Undo the last step (Backtrack)
         tempSet.removeLast()
         
-    }
-    
-    func backTracking1(_ nums: [Int], _ result: inout [[Int]], _ tempSet: inout [Int], _ startIndex: Int) {
-        // ✅ Step 1: Add the current subset to the result
-        result.append(tempSet)
-        print(result)
-        // 🔁 Step 2: Iterate from startIndex to the end of array
-        for i in startIndex..<nums.count {
-            
-            // Including the number
-            tempSet.append(nums[i])
-            // Recursion to move forward with the next index
-            backTracking(nums, &result, &tempSet, i + 1)
-            
-            // Not including the number
-            // 🔙 Backtrack: Remove the last added element to explore the next option
-            tempSet.removeLast()
-        }
     }
     
 }
