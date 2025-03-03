@@ -21,7 +21,7 @@ class PalindromePartitioning {
         print(res)
     }
     
-    //Time Complexity: O(2^n * n) || Space Compelxity: O(2^n * n) 
+    //Time Complexity: O(2^n * n) || Space Compelxity: O(2^n * n)
     func partition(_ s: String) -> [[String]] {
         var result = [[String]]()
         var tempSet = [String]()
