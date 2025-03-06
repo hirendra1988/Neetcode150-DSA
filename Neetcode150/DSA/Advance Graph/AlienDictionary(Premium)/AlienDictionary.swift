@@ -9,7 +9,6 @@
 //https://neetcode.io/problems/foreign-dictionary
 //https://www.youtube.com/watch?v=6kTZYvNNyps
 class AlienDictionary {
-    
     var graph = [Character: [Character]]()
     init() {
 //        Example 1:
@@ -92,9 +91,8 @@ class AlienDictionary {
         }
         return result.count == inDegree.count ? String(result) : ""
     }
-    
+
     func addDEdge(u: Character, v: Character) {
         graph[u]!.append(v)
     }
-    
 }
