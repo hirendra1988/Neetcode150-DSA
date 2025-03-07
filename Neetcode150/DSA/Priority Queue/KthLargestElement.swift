@@ -51,7 +51,6 @@ class KthLargest {
             minHeap.sort()
             if minHeap.count > k {
                 minHeap.removeFirst()
-                minHeap.sort()
             }
         }
         return minHeap.first!
