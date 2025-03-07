@@ -28,7 +28,8 @@ class ValidAnagram {
         return false
     }
     
-    // Time Complexity: O(n) || Space Compelxity: O(n)
+    // Time Complexity: O(n) || Space Compelxity: O(1)
+    //So, the Space Complexity = O(1) (because 26 is constant).
     func isAnagram2(_ s: String, _ t: String) -> Bool {
         if s.count != t.count {
             return false
