@@ -42,13 +42,12 @@ class ClimbingStairs {
     // MARK: Using Dynamic Programming (Better)
     // Time Complexity: O(n) || Space Compelxity: O(n)
     func climbStairs1(_ n: Int) -> Int {
-        if n < 3 {
+        if n <= 2 {
             return n
         }
         var dp = [Int](repeating: 0, count: n)
         dp[0] = 1
         dp[1] = 2
-        
         for i in 2..<n {
             dp[i] = dp[i-1] + dp[i-2]
         }
@@ -58,14 +57,8 @@ class ClimbingStairs {
     // MARK: Using Recursion (Not optimal)
     // Time Complexity: O(2^n) || Space Compelxity: O(n)
     func climbStairs(_ n: Int) -> Int {
-        if n == 0 {
-            return 0
-        }
-        if n == 1 {
-            return 1
-        }
-        if n == 2 {
-            return 2
+        if n <= 2 {
+            return n
         }
         return climbStairs(n-1) + climbStairs(n-2)
     }
