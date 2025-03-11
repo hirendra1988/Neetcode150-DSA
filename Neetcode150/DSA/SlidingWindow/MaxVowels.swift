@@ -69,5 +69,4 @@ class MaxVowels {
         }
         return maxVowels
     }
-    
 }

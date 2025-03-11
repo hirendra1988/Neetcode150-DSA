@@ -68,6 +68,5 @@ class SlidingWindowMax {
         }
         return result
     }
-    
 }
 
