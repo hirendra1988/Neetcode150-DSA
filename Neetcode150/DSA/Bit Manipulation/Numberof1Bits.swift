@@ -57,7 +57,6 @@ class Numberof1Bits {
         while num > 0 {
             res += num % 2
             num = num >> 1
-            count += 1
         }
         return res
     }
