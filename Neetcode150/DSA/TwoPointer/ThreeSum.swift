@@ -31,7 +31,7 @@ class ThreeSum {
             left = i + 1
             right = sortedNums.count - 1
             while left < right {
-                var sum = sortedNums[i] + sortedNums[left] + sortedNums[right]
+                let sum = sortedNums[i] + sortedNums[left] + sortedNums[right]
                 if sum == 0 {
                     result.insert([sortedNums[i], sortedNums[left], sortedNums[right]])
                     left += 1

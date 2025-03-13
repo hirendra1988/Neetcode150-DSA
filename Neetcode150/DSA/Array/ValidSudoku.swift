@@ -72,6 +72,8 @@ class ValidSudoku {
         for grid in 0..<9 {
             let startRow = (grid / 3) * 3
             let startCol = (grid % 3) * 3
+            print(startRow)
+            print(startCol)
             hashMap.removeAll()
             for row in startRow..<startRow + 3 {
                 for col in startCol..<startCol + 3 {

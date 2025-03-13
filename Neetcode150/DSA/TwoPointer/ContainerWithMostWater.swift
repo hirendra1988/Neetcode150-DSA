@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/container-with-most-water/
 //https://neetcode.io/problems/max-water-container
+//https://www.youtube.com/watch?v=w7ftYsZtIbs
 class ContainerWithMostWater {
     
     init() {
@@ -22,6 +23,9 @@ class ContainerWithMostWater {
     
     // Time Complexity: O(n) || Space Compelxity: O(1)
     func maxArea(_ height: [Int]) -> Int {
+        if height.isEmpty {
+            return 0
+        }
         var maxArea = 0
         var left = 0
         var right = height.count - 1

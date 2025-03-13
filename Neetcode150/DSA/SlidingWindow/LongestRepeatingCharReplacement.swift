@@ -8,6 +8,7 @@
 //https://leetcode.com/problems/longest-repeating-character-replacement/
 //https://neetcode.io/problems/longest-repeating-substring-with-replacement
 //https://www.youtube.com/watch?v=y0-x7GSTzu0
+//https://www.youtube.com/watch?v=ExY8svHF_Eo&t=346s
 class LongestRepeatingCharReplacement {
     
     init() {
