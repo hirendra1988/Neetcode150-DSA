@@ -28,23 +28,15 @@ class GenerateParentheses {
     }
     
     func generate(cur: String, open: Int, close: Int, result: inout [String]) {
-        if open < 0 || close < 0 {
-            return
-        }
         if open == 0 && close == 0 {
             result.append(cur)
             return
         }
         if open > 0 {
-            var cur = cur
-            cur += "("
-            generate(cur: cur, open: open - 1, close: close, result: &result)
+            generate(cur: cur + "(", open: open - 1, close: close, result: &result)
         }
-        
-        if open < close && close > 0 {
-            var cur = cur
-            cur += ")"
-            generate(cur: cur, open: open, close: close - 1, result: &result)
+        if close > open {
+            generate(cur: cur + ")", open: open, close: close-1, result: &result)
         }
     }
     
