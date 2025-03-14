@@ -19,9 +19,30 @@ class SearchA2DMatrix {
         let res = searchMatrix(matrix, target)
         print(res)
     }
-    
+
     // Time Complexity: O(log(n*m) || Space Compelxity: O(1)
     func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
+        let rows = matrix.count
+        let cols = matrix[0].count
+        var left = 0
+        var right = rows * cols - 1
+        while left <= right {
+            let mid = (left + right)/2
+            let element = matrix[mid/cols][mid%cols]
+            if element == target {
+                return true
+            }
+            if element > target {
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
+        }
+        return false
+    }
+    
+    // Time Complexity: O(m * log(n) || Space Compelxity: O(1)
+    func searchMatrix1(_ matrix: [[Int]], _ target: Int) -> Bool {
         let rows = matrix.count
         let cols = matrix[0].count
         for row in 0..<rows {
