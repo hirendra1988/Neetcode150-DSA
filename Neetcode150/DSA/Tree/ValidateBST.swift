@@ -14,9 +14,9 @@ class ValidateBST {
     }
     
     func runTest() {
-//        Input: root = [5,1,4,null,null,3,6]
-//        Output: false
-//        Explanation: The root node's value is 5 but its right child's value is 4.
+        //        Input: root = [5,1,4,null,null,3,6]
+        //        Output: false
+        //        Explanation: The root node's value is 5 but its right child's value is 4.
         let root = createRootTree()
         let res = isValidBST(root)
         print(res)
@@ -35,6 +35,27 @@ class ValidateBST {
         return isValidBSTHelper(root.left, min, root.val) && isValidBSTHelper(root.right, root.val, max)
     }
     
+    //Time Complexity: O(n) || Space Compelxity: O(n)
+    func isValidBST2(_ root: TreeNode?) -> Bool {
+        var isValid = true
+        var arr = [Int]()
+        inorder(root, &arr)
+        for i in 0..<arr.count - 1 {
+            if arr[i+1] <= arr[i] {
+                isValid = false
+                break
+            }
+        }
+        return isValid
+    }
+    
+    func inorder(_ root: TreeNode?, _ arr: inout [Int]) {
+        guard let root = root else { return }
+        inorder(root.left, &arr)
+        arr.append(root.val)
+        inorder(root.right, &arr)
+    }
+    
     func createRootTree() -> TreeNode? {
         let n1 = TreeNode(5)
         let n2 = TreeNode(1)
@@ -46,7 +67,7 @@ class ValidateBST {
         let n5 = TreeNode(6)
         n3.left = n4
         n3.right = n5
-
+        
         return n1
     }
     

@@ -26,7 +26,11 @@ class ConstructBT {
         return buildTreeHelper(preorder, inorder, &pIndex, 0, preorder.count - 1)
     }
     
-    func buildTreeHelper(_ preorder: [Int], _ inorder: [Int], _ pIndex: inout Int, _ start: Int, _ end: Int) -> TreeNode? {
+    func buildTreeHelper(_ preorder: [Int],
+                         _ inorder: [Int],
+                         _ pIndex: inout Int,
+                         _ start: Int,
+                         _ end: Int) -> TreeNode? {
         if start > end {
             return nil
         }
