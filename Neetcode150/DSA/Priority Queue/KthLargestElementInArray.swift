@@ -54,4 +54,80 @@ class KthLargestElementInArray {
         }
     }
     
+    func findKthLargest1(_ nums: [Int], _ k: Int) -> Int {
+        var minHeap = MinHeap2()
+        for num in nums {
+            minHeap.push(num)
+            if minHeap.count > k {
+                minHeap.pop()
+            }
+        }
+        return minHeap.peek()!
+    }
+    
+}
+
+class MinHeap2 {
+    
+    private var heap = [Int]()
+    
+    init() {
+        
+    }
+    
+    var count: Int {
+        return heap.count
+    }
+    
+    func peek() -> Int? {
+        return heap.first
+    }
+    
+    func push(_ element: Int) {
+        heap.append(element)
+        heapifyUp(heap.count - 1)
+    }
+    
+    func pop() -> Int? {
+        if heap.isEmpty {
+            return nil
+        }
+        if heap.count == 1 {
+            return heap.removeLast()
+        }
+        heap.swapAt(0, heap.count - 1)
+        let top = heap.removeLast()
+        heapifyDown(0)
+        return top
+    }
+    
+    private func heapifyUp(_ index: Int) {
+        var currIndex = index
+        while currIndex > 0 {
+            let parentIdx = (currIndex - 1) / 2
+            if heap[currIndex] < heap[parentIdx] {
+                heap.swapAt(currIndex, parentIdx)
+                currIndex = parentIdx
+            } else {
+                break
+            }
+        }
+    }
+    
+    private func heapifyDown(_ index: Int) {
+        var smallest = index
+        var left = 2*index + 1
+        var right = 2*index + 2
+        if left < count, heap[left] < heap[smallest] {
+            smallest = left
+        }
+        if right < count, heap[right] < heap[smallest] {
+            smallest = right
+        }
+        if smallest != index {
+            heap.swapAt(smallest, index)
+            heapifyDown(smallest)
+        }
+    }
+    
 }

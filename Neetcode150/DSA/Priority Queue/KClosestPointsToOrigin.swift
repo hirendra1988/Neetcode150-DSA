@@ -62,6 +62,26 @@ class KClosestPointsToOrigin {
         }
         return Array(allPoints[0...k-1])
     }
+    
+    func kClosest2(_ points: [[Int]], _ k: Int) -> [[Int]] {
+        var result = [[Int]]()
+        var tempArr = [(Double, Int)]()
+        for i in 0..<points.count {
+            let point = points[i]
+            let x1 = point[0]
+            let y1 = point[1]
+            let sqrt = sqrt(Double(x1 * x1 + y1 * y1))
+            tempArr.append((sqrt, i))
+        }
+        var sorted = tempArr.sorted { $0.0 < $1.0 }
+        for (sqrt, index) in sorted {
+            result.append(points[index])
+            if result.count == k {
+                break
+            }
+        }
+        return result
+    }
 
 }
 
