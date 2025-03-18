@@ -11,8 +11,8 @@
 class SubsetsII {
     
     init() {
-//        Input: nums = [1,2,2]
-//        Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+        //        Input: nums = [1,2,2]
+        //        Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
         runTest()
     }
     
@@ -39,6 +39,21 @@ class SubsetsII {
             result.append(tempSet)
         }
         for i in startIndex..<nums.count {
+            tempSet.append(nums[i])
+            backTracking(nums, &result, &tempSet, i+1)
+            tempSet.removeLast()
+        }
+    }
+
+    func backTracking2(_ nums: [Int],
+                      _ result: inout [[Int]],
+                      _ tempSet: inout [Int],
+                      _ startIndex: Int) {
+        result.append(tempSet)
+        for i in startIndex..<nums.count {
+            if i > startIndex, nums[i] == nums[i-1] {
+                continue
+            }
             tempSet.append(nums[i])
             backTracking(nums, &result, &tempSet, i+1)
             tempSet.removeLast()

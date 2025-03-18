@@ -45,14 +45,19 @@ class CombinationSum {
             result.append(tempSet)
             return
         }
+        print(tempSet)
         
         for i in startIndex..<candidates.count {
             if curSum + candidates[i] > target {
                 continue
             }
+            
             tempSet.append(candidates[i])
+            print(tempSet)
             backTracking(candidates, target, &result, &tempSet, i, curSum + candidates[i])
+            print(tempSet)
             tempSet.removeLast()
+            print(tempSet)
         }
     }
     

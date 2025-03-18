@@ -38,6 +38,7 @@ class Subsets {
     
     func backTracking(_ nums: [Int], _ result: inout [[Int]], _ tempSet: inout [Int], _ startIndex: Int) {
         // ✅ Step 1: Add the current subset to the result
+        print(tempSet)
         result.append(tempSet)
         print(result)
         // 🔁 Step 2: Iterate from startIndex to the end of array
@@ -53,6 +54,7 @@ class Subsets {
             // 🔙 Backtrack: Remove the last added element to explore the next option
             print(tempSet)
             tempSet.removeLast()
+            print(tempSet)
         }
     }
 
