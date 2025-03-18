@@ -54,9 +54,7 @@ class Twitter2 {
             }
         }
         
-        let sortedResult = result.sorted {
-            $0.0 > $1.0
-        }
+        let sortedResult = result.sorted { $0.0 > $1.0 }
         var finalRes = [Int]()
         for tweet in sortedResult.prefix(10) {
             finalRes.append(tweet.1)
