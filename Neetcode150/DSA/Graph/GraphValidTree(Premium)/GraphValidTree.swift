@@ -37,9 +37,9 @@ class GraphValidTree {
             if x == y {
                 return false
             }
-            if parent[x] < parent[y] {
+            if rank[x] < rank[y] {
                 parent[x] = y
-            } else if parent[x] > parent[y] {
+            } else if rank[x] > rank[y] {
                 parent[y] = x
             } else {
                 parent[y] = x
