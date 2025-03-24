@@ -90,7 +90,10 @@ class GraphValidTree {
         //        return true
     }
     
-    private func hasCycle(_ node: Int, _ parent: Int, _ graph: [[Int]], _ visited: inout [Bool]) -> Bool {
+    private func hasCycle(_ node: Int,
+                          _ parent: Int,
+                          _ graph: [[Int]],
+                          _ visited: inout [Bool]) -> Bool {
         visited[node] = true
         for neighbor in graph[node] {
             if !visited[neighbor] {
