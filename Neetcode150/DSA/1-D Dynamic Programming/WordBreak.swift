@@ -28,7 +28,7 @@ class WordBreak {
     
     //Time Complexity: O(n^2) || Space Compelxity: O(n)
     func wordBreak(_ s: String, _ wordDict: [String]) -> Bool {
-        var wordSet = Set(wordDict)
+        let wordSet = Set(wordDict)
         var maxLength = 0
         for word in wordSet {
             maxLength = max(word.count, maxLength)
