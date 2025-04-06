@@ -137,5 +137,4 @@ class MinCostConnectAllPoints {
         print("\n")
     }
     
-    
 }
