@@ -117,7 +117,6 @@ class MinCostConnectAllPoints {
             mst.insert(vertex)
             nonmst.remove(vertex)
         }
-        
         return result
     }
     
@@ -136,5 +135,4 @@ class MinCostConnectAllPoints {
         }
         print("\n")
     }
-    
 }
