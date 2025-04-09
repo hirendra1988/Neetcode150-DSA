@@ -10,12 +10,12 @@
 class ReconstructItinerary {
     
     init() {
-//        Input: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
-//        Output: ["JFK","MUC","LHR","SFO","SJC"]
+        //        Input: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
+        //        Output: ["JFK","MUC","LHR","SFO","SJC"]
         
-//        Input: tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
-//        Output: ["JFK","ATL","JFK","SFO","ATL","SFO"]
-//        Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"] but it is larger in lexical order.
+        //        Input: tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+        //        Output: ["JFK","ATL","JFK","SFO","ATL","SFO"]
+        //        Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"] but it is larger in lexical order.
         runTest()
     }
     
@@ -31,7 +31,7 @@ class ReconstructItinerary {
         if tickets.isEmpty {
             return []
         }
-
+        
         let sortedTickets = tickets.sorted {
             return $0[1] < $1[1]
         }
