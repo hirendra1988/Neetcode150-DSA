@@ -11,18 +11,18 @@
 class AlienDictionary {
     var graph = [Character: [Character]]()
     init() {
-//        Example 1:
-//        Input: words = ["wrt","wrf","er","ett","rftt"]
-//        Output: "wertf"
-//        
-//        Example 2:
-//        Input: words = ["z","x"]
-//        Output: "zx"
-//
-//        Example 3:
-//        Input: words = ["z","x","z"]
-//        Output: ""
-//        Explanation: The order is invalid, so return "".
+        //        Example 1:
+        //        Input: words = ["wrt","wrf","er","ett","rftt"]
+        //        Output: "wertf"
+        //
+        //        Example 2:
+        //        Input: words = ["z","x"]
+        //        Output: "zx"
+        //
+        //        Example 3:
+        //        Input: words = ["z","x","z"]
+        //        Output: ""
+        //        Explanation: The order is invalid, so return "".
         runTest()
     }
     
@@ -91,7 +91,7 @@ class AlienDictionary {
         }
         return result.count == inDegree.count ? String(result) : ""
     }
-
+    
     func addDEdge(u: Character, v: Character) {
         graph[u]!.append(v)
     }
