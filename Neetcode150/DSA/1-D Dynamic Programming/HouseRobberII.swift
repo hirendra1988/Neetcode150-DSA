@@ -11,9 +11,9 @@
 class HouseRobberII {
     
     init() {
-//        Input: nums = [2,3,2]
-//        Output: 3
-//        Explanation: You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses.
+        //        Input: nums = [2,3,2]
+        //        Output: 3
+        //        Explanation: You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses.
         runTest()
     }
     
