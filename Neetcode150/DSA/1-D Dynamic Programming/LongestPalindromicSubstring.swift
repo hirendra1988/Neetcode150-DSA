@@ -10,9 +10,9 @@
 class LongestPalindromicSubstring {
     
     init() {
-//        Input: s = "babad"
-//        Output: "bab"
-//        Explanation: "aba" is also a valid answer.
+        //        Input: s = "babad"
+        //        Output: "bab"
+        //        Explanation: "aba" is also a valid answer.
         runTest()
     }
     
