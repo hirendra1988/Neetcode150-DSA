@@ -10,9 +10,9 @@
 class PalindromicSubstrings {
     
     init() {
-//        Input: s = "abc"
-//        Output: 3
-//        Explanation: Three palindromic strings: "a", "b", "c".
+        //        Input: s = "abc"
+        //        Output: 3
+        //        Explanation: Three palindromic strings: "a", "b", "c".
         runTest()
     }
     
