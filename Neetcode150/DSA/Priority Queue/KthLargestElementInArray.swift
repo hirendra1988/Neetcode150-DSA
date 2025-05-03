@@ -55,11 +55,11 @@ class KthLargestElementInArray {
     }
     
     func findKthLargest1(_ nums: [Int], _ k: Int) -> Int {
-        var minHeap = MinHeap2()
+        let minHeap = MinHeap2()
         for num in nums {
             minHeap.push(num)
             if minHeap.count > k {
-                minHeap.pop()
+                _ = minHeap.pop()
             }
         }
         return minHeap.peek()!
@@ -116,8 +116,8 @@ class MinHeap2 {
     
     private func heapifyDown(_ index: Int) {
         var smallest = index
-        var left = 2*index + 1
-        var right = 2*index + 2
+        let left = 2*index + 1
+        let right = 2*index + 2
         if left < count, heap[left] < heap[smallest] {
             smallest = left
         }

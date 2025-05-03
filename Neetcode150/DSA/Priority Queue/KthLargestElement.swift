@@ -11,10 +11,10 @@
 class KthLargestElement {
     
     init() {
-//        ["KthLargest", "add", "add", "add", "add", "add"]
-//        [[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
-//
-//        Output: [null, 4, 5, 5, 8, 8]
+        //        ["KthLargest", "add", "add", "add", "add", "add"]
+        //        [[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
+        //
+        //        Output: [null, 4, 5, 5, 8, 8]
         runTest()
     }
     
@@ -76,3 +76,98 @@ class KthLargest1 {
         return sortedArr[k-1]
     }
 }
+
+class KthLargest2 {
+    
+    var minHeap = KthLargestMinHeap2()
+    var k = 0
+    
+    init(_ k: Int, _ nums: [Int]) {
+        self.k = k
+        for num in nums {
+            _ = add(num)
+        }
+    }
+    
+    func add(_ val: Int) -> Int {
+        if minHeap.count < k {
+            minHeap.push(val)
+        } else if let top = minHeap.peek(), top < val {
+            minHeap.pop()
+            minHeap.push(val)
+        }
+        return minHeap.peek() ?? 0
+    }
+}
+
+class KthLargestMinHeap2 {
+    private var heap = [Int]()
+    
+    init() {
+        
+    }
+    
+    var count: Int {
+        return heap.count
+    }
+    
+    func peek() -> Int? {
+        return heap.first
+    }
+    
+    func push(_ val: Int) {
+        heap.append(val)
+        shiftUp(count - 1)
+    }
+    
+    func pop() -> Int? {
+        if heap.isEmpty {
+            return nil
+        }
+        let temp = heap[count - 1]
+        heap[count - 1] = heap[0]
+        heap[0] = temp
+        let top = heap.removeLast()
+        shiftDown(0)
+        return top
+    }
+    
+    func shiftDown(_ index: Int) {
+        var smallest = index
+        var left = 2*index + 1
+        var right = 2*index + 2
+        if left < heap.count, heap[left] < heap[smallest] {
+            smallest = left
+        }
+        if right < heap.count, heap[right] < heap[smallest] {
+            smallest = right
+        }
+        if smallest != index {
+            let temp = heap[smallest]
+            heap[smallest] = heap[index]
+            heap[index] = temp
+            shiftDown(smallest)
+        }
+    }
+    
+    func shiftUp(_ index: Int) {
+        var child = index
+        while child > 0 {
+            var parent = (child - 1)/2
+            if heap[child] < heap[parent] {
+                let temp = heap[child]
+                heap[child] = heap[parent]
+                heap[parent] = temp
+                child = parent
+            } else {
+                break
+            }
+        }
+    }
+}
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * let obj = KthLargest(k, nums)
+ * let ret_1: Int = obj.add(val)
+ */
