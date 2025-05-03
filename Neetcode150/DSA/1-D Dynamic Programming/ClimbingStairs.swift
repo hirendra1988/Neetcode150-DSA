@@ -26,12 +26,12 @@ class ClimbingStairs {
     // MARK: Using Fibonacci Approach (Best Approach)
     // Time Complexity: O(n) || Space Compelxity: O(1)
     func climbStairs2(_ n: Int) -> Int {
-        if n < 3 {
+        if n <= 2 {
             return n
         }
         var first = 1
         var second = 2
-        for _ in 3...n {
+        for _ in 2..<n {
             let temp = first + second
             first = second
             second = temp
