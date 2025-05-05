@@ -9,8 +9,8 @@
 class SingleNumber {
     
     init() {
-//        Input: nums = [2,2,1]
-//        Output: 1
+        //        Input: nums = [2,2,1]
+        //        Output: 1
         runTest()
     }
     
