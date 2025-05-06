@@ -8,7 +8,6 @@
 //https://leetcode.com/problems/generate-parentheses/
 //https://neetcode.io/problems/generate-parentheses
 class GenerateParentheses {
-    
     init() {
         runTest()
     }
