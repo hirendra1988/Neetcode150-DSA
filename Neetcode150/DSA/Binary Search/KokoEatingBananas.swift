@@ -9,6 +9,7 @@ import math_h
 
 //https://leetcode.com/problems/koko-eating-bananas/
 //https://neetcode.io/problems/eating-bananas
+//https://www.youtube.com/watch?v=JGYXNpZaW2U&t=938s
 class KokoEatingBananas {
     
     init() {
