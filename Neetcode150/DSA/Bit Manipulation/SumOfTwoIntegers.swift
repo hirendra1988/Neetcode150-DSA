@@ -11,8 +11,8 @@
 class SumOfTwoIntegers {
     
     init() {
-//        Input: a = 1, b = 2
-//        Output: 3
+        //        Input: a = 1, b = 2
+        //        Output: 3
         runTest()
     }
     
