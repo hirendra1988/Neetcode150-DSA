@@ -73,8 +73,8 @@ class KClosestPointsToOrigin {
             let sqrt = sqrt(Double(x1 * x1 + y1 * y1))
             tempArr.append((sqrt, i))
         }
-        var sorted = tempArr.sorted { $0.0 < $1.0 }
-        for (sqrt, index) in sorted {
+        let sorted = tempArr.sorted { $0.0 < $1.0 }
+        for (_, index) in sorted {
             result.append(points[index])
             if result.count == k {
                 break
