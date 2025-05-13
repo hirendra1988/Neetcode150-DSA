@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/hand-of-straights/
 //https://neetcode.io/problems/hand-of-straights
+//https://www.youtube.com/watch?v=Y9LEGcxcYZc&t=682s
 class HandOfStraights {
     
     init() {

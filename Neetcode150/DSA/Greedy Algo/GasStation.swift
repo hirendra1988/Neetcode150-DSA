@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/gas-station/
 //https://neetcode.io/problems/gas-station
+//https://www.youtube.com/watch?v=fOaUh1_fJPw
 class GasStation {
     
     init() {
@@ -31,6 +32,31 @@ class GasStation {
     
     //Time Complexity: O(n) || Space Compelxity: O(1)
     func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
+        var totalGas = 0
+        var toalCost = 0
+        for i in 0..<gas.count {
+            totalGas += gas[i]
+            toalCost += cost[i]
+        }
+        
+        if totalGas < toalCost {
+            return -1
+        }
+        
+        var currGas = 0
+        var currIndex = 0
+        for i in 0..<gas.count {
+            currGas += gas[i] - cost[i]
+            if currGas < 0 {
+                currGas = 0
+                currIndex = i + 1
+            }
+        }
+        return currIndex
+    }
+    
+    //Time Complexity: O(n) || Space Compelxity: O(1)
+    func canCompleteCircuit2(_ gas: [Int], _ cost: [Int]) -> Int {
         var index = 0
         var totalDiff = 0
         var fuel = 0
