@@ -64,6 +64,57 @@ class SetMatrixZeroes {
         }
     }
     
+    // MARK: Time Complexity: O(m*n) || Space Compelxity: O(1)
+    func setZeroes2(_ matrix: inout [[Int]]) {
+        var firstRowZero = false
+        var firstColZero = false
+        let rows = matrix.count
+        let cols = matrix[0].count
+        for col in 0..<cols {
+            if matrix[0][col] == 0 {
+                firstRowZero = true
+                break
+            }
+        }
+        
+        for row in 0..<rows {
+            if matrix[row][0] == 0 {
+                firstColZero = true
+                break
+            }
+        }
+        
+        for row in 1..<rows {
+            for col in 1..<cols {
+                if matrix[row][col] == 0 {
+                    matrix[0][col] = 0
+                    matrix[row][0] = 0
+                }
+            }
+        }
+        
+        for row in 1..<rows {
+            for col in 1..<cols {
+                if matrix[0][col] == 0 || matrix[row][0] == 0 {
+                    matrix[row][col] = 0
+                }
+            }
+        }
+        
+        if firstRowZero {
+            for col in 0..<cols {
+                matrix[0][col] = 0
+            }
+        }
+        
+        if firstColZero {
+            for row in 0..<rows {
+                matrix[row][0] = 0
+            }
+        }
+        
+    }
+    
     // MARK: Time Complexity: O(m*n) || Space Compelxity: O(m+n)
     func setZeroes1(_ matrix: inout [[Int]]) {
         let rows = matrix.count
