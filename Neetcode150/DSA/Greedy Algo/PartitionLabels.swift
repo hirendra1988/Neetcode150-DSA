@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/partition-labels/
 //https://neetcode.io/problems/partition-labels
+//https://www.youtube.com/watch?v=aUVEMnlcw4E&t=803s
 class PartitionLabels {
     
     init() {
