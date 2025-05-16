@@ -20,7 +20,7 @@ class ArrayDSA {
     
     func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
         var result = 0
-        var people = people.sorted()
+        let people = people.sorted()
         var left = 0
         var right = people.count - 1
         while left <= right {
