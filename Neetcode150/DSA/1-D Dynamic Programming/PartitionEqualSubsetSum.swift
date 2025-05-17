@@ -56,7 +56,7 @@ class PartitionEqualSubsetSum {
         }
         return memo[n][sum] ?? false
     }
-    
+
     // Using Recursion
     //Time Complexity: O(2ⁿ) || Space Compelxity: O(n)
     func canPartition2(_ nums: [Int]) -> Bool {
@@ -69,7 +69,7 @@ class PartitionEqualSubsetSum {
         }
         return subsetSum2(nums, nums.count, sum / 2)
     }
-    
+
     func subsetSum2(_ nums: [Int], _ n: Int, _ sum: Int) -> Bool {
         if n == 0 {
             return false
@@ -103,5 +103,4 @@ class PartitionEqualSubsetSum {
         }
         return dp[target]
     }
-    
 }
