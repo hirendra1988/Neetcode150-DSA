@@ -5,15 +5,15 @@
 //  Created by Hirendra Sharma on 10/02/25.
 //
 
-// This Problem is samle like Climbing Stairs
+// This Problem is same like Climbing Stairs
 //https://leetcode.com/problems/unique-paths/
 //https://neetcode.io/problems/count-paths
 //https://www.youtube.com/watch?v=Ee-rJmkwaTM
 class UniquePaths {
-        
+    
     init() {
-//        Input: m = 3, n = 7
-//        Output: 28
+        //        Input: m = 3, n = 7
+        //        Output: 28
         runTest()
     }
     

@@ -12,13 +12,13 @@
 class DistinctSubsequences {
     var checkCount = 0
     init() {
-//        Input: s = "rabbbit", t = "rabbit"
-//        Output: 3
-//        Explanation:
-//        As shown below, there are 3 ways you can generate "rabbit" from s.
-//        rabbbit
-//        rabbbit
-//        rabbbit
+        //        Input: s = "rabbbit", t = "rabbit"
+        //        Output: 3
+        //        Explanation:
+        //        As shown below, there are 3 ways you can generate "rabbit" from s.
+        //        rabbbit
+        //        rabbbit
+        //        rabbbit
         runTest()
     }
     
@@ -37,10 +37,10 @@ class DistinctSubsequences {
     }
     
     func numDistinctHelper1(_ sChars: [Character],
-                           _ tChars: [Character],
-                           _ i: Int,
-                           _ j: Int,
-                           _ dp: inout [[Int]]) -> Int {
+                            _ tChars: [Character],
+                            _ i: Int,
+                            _ j: Int,
+                            _ dp: inout [[Int]]) -> Int {
         if j == tChars.count {
             return 1
         }
