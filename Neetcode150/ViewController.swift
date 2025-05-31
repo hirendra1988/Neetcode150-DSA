@@ -13,9 +13,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         JumpGameII()
-       
+
     }
 
 }
-
 
