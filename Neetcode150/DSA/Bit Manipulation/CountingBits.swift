@@ -10,12 +10,12 @@
 class CountingBits {
     
     init() {
-//        Input: n = 2
-//        Output: [0,1,1]
-//        Explanation:
-//        0 --> 0
-//        1 --> 1
-//        2 --> 10
+        //        Input: n = 2
+        //        Output: [0,1,1]
+        //        Explanation:
+        //        0 --> 0
+        //        1 --> 1
+        //        2 --> 10
         runTest()
     }
     
