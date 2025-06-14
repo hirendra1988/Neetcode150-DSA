@@ -11,9 +11,9 @@
 class HandOfStraights {
     
     init() {
-//        Input: hand = [1,2,3,6,2,3,4,7,8], groupSize = 3
-//        Output: true
-//        Explanation: Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8]
+        //        Input: hand = [1,2,3,6,2,3,4,7,8], groupSize = 3
+        //        Output: true
+        //        Explanation: Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8]
         runTest()
     }
     
@@ -22,7 +22,7 @@ class HandOfStraights {
         let res = isNStraightHand(hand, groupSize)
         print(res)
     }
-
+    
     //Time Complexity: O(nlogn) || Space Compelxity: O(n)
     func isNStraightHand(_ hand: [Int], _ groupSize: Int) -> Bool {
         if hand.count % groupSize != 0 {
@@ -48,7 +48,7 @@ class HandOfStraights {
         }
         return true
     }
-
+    
     //Time Complexity: O(nlogn) || Space Compelxity: O(n)
     func isNStraightHand1(_ hand: [Int], _ groupSize: Int) -> Bool {
         if hand.count % groupSize != 0 {
