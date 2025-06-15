@@ -10,8 +10,8 @@
 class CourseSchedule_II {
     
     init() {
-//        Input: numCourses = 2, prerequisites = [[1,0]]
-//        Output: [0,1]
+        //        Input: numCourses = 2, prerequisites = [[1,0]]
+        //        Output: [0,1]
         runTest()
     }
     
