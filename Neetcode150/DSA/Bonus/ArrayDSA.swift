@@ -6,18 +6,18 @@
 //
 
 class ArrayDSA {
-    
+
     init() {
         runTest()
     }
-    
+
     func runTest() {
         let people = [3,2,2,1], limit = 3
         //let people = [3,5,3,4], limit = 5
         let res = numRescueBoats(people, limit)
         print(res)
     }
-    
+
     func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
         var result = 0
         let people = people.sorted()
