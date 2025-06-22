@@ -12,10 +12,13 @@ class ArrayDSA {
     }
 
     func runTest() {
-        let people = [3,2,2,1], limit = 3
-        //let people = [3,5,3,4], limit = 5
-        let res = numRescueBoats(people, limit)
-        print(res)
+//        let people = [3,2,2,1], limit = 3
+//        //let people = [3,5,3,4], limit = 5
+//        let res = numRescueBoats(people, limit)
+//        print(res)
+        
+        let nums1 = [1,2,2,1], nums2 = [2,2]
+        print(intersection(nums1, nums2))
     }
 
     func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
@@ -33,4 +36,31 @@ class ArrayDSA {
         return result
     }
     
+
+//    Input: nums1 = [1,2,2,1], nums2 = [2,2]
+//    Output: [2]
+//    Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+//    Output: [9,4]
+//    Explanation: [4,9] is also accepted.
+    
+    func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        var sortedNums1 = nums1.sorted()
+        var sortedNums2 = nums2.sorted()
+        var resultSet = Set<Int>()
+        var index1 = 0
+        var index2 = 0
+        while index1 < sortedNums1.count && index2 < sortedNums2.count {
+            if sortedNums1[index1] == sortedNums2[index2] && !resultSet.contains(sortedNums1[index1]) {
+                resultSet.insert(sortedNums1[index1])
+                index1 += 1
+                index2 += 1
+            } else if sortedNums1[index1] < sortedNums2[index2] {
+                index1 += 1
+            } else {
+                index2 += 1
+            }
+        }
+        return Array(resultSet)
+    }
+
 }
