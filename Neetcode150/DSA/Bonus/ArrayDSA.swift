@@ -6,21 +6,21 @@
 //
 
 class ArrayDSA {
-
+    
     init() {
         runTest()
     }
-
+    
     func runTest() {
-//        let people = [3,2,2,1], limit = 3
-//        //let people = [3,5,3,4], limit = 5
-//        let res = numRescueBoats(people, limit)
-//        print(res)
+        //        let people = [3,2,2,1], limit = 3
+        //        //let people = [3,5,3,4], limit = 5
+        //        let res = numRescueBoats(people, limit)
+        //        print(res)
         
         let nums1 = [1,2,2,1], nums2 = [2,2]
         print(intersection(nums1, nums2))
     }
-
+    
     func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
         var result = 0
         let people = people.sorted()
@@ -35,12 +35,12 @@ class ArrayDSA {
         }
         return result
     }
-
-//    Input: nums1 = [1,2,2,1], nums2 = [2,2]
-//    Output: [2]
-//    Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-//    Output: [9,4]
-//    Explanation: [4,9] is also accepted.
+    
+    //    Input: nums1 = [1,2,2,1], nums2 = [2,2]
+    //    Output: [2]
+    //    Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+    //    Output: [9,4]
+    //    Explanation: [4,9] is also accepted.
     func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
         let sortedNums1 = nums1.sorted()
         let sortedNums2 = nums2.sorted()
@@ -60,5 +60,5 @@ class ArrayDSA {
         }
         return Array(resultSet)
     }
-
+    
 }
