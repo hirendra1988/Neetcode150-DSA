@@ -13,7 +13,7 @@ class ContainsDuplicate {
     init() {
         runTest()
     }
-    
+
     private func runTest() {
         let array = [1,2,3,1]
         let result = containsDuplicate(array)
