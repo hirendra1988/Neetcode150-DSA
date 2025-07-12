@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/insert-interval/
 //https://neetcode.io/problems/insert-new-interval
+//https://www.youtube.com/watch?v=wCBtjZxw1xY&t=19s
 class InsertInterval {
     
     init() {
@@ -26,6 +27,7 @@ class InsertInterval {
         if newInterval.isEmpty {
             return intervals
         }
+        //intervals = [[1,3],[6,9]], newInterval = [2,5]
         var result = [[Int]]()
         var newInterval = newInterval
         for interval in intervals {

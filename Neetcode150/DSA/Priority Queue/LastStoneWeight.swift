@@ -33,5 +33,86 @@ class LastStoneWeight {
         }
         return sortedArray.first ?? 0
     }
+
+    func lastStoneWeight2(_ stones: [Int]) -> Int {
+        var heap = MaxHeap2()
+        for stone in stones {
+            heap.push(stone)
+        }
+        while heap.count > 1 {
+            let firstLargest = heap.pop() ?? 0
+            let secondLargest = heap.pop() ?? 0
+            if firstLargest != secondLargest {
+                heap.push(firstLargest - secondLargest)
+            }
+        }
+        return heap.peek() ?? 0
+    }
     
+}
+
+class MaxHeap2 {
+    private var heap = [Int]()
+
+    init() {
+        
+    }
+
+    var count: Int {
+        return heap.count
+    }
+
+    func push(_ val: Int) {
+        heap.append(val)
+        heapifyUp(heap.count - 1)
+    }
+
+    func pop() -> Int? {
+        if count == 0 {
+            return nil
+        }
+        let last = heap[count - 1]
+        heap[count - 1] = heap[0]
+        heap[0] = last
+        let top = heap.removeLast()
+        heapifyDown(0)
+        return top
+    }
+
+    func peek() -> Int? {
+        return heap.first
+    }
+
+    func heapifyUp(_ index: Int) {
+        var childIdx = index
+        while childIdx > 0 {
+            var parentIdx = (childIdx - 1) / 2
+            if heap[childIdx] > heap[parentIdx] {
+                let temp = heap[childIdx]
+                heap[childIdx] = heap[parentIdx]
+                heap[parentIdx] = temp
+                childIdx = parentIdx
+            } else {
+                break
+            }
+        }
+    }
+
+    func heapifyDown(_ index: Int) {
+        var largest = index
+        var left = index * 2 + 1
+        var right = index * 2 + 2
+        if left < heap.count, heap[left] > heap[largest] {
+            largest = left
+        }
+        if right < heap.count, heap[right] > heap[largest] {
+            largest = right
+        }
+        if largest != index {
+            let temp = heap[index]
+            heap[index] = heap[largest]
+            heap[largest] = temp
+            heapifyDown(largest)
+        }
+    }
 }
