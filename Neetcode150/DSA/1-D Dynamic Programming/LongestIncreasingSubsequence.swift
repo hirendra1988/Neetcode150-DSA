@@ -21,7 +21,7 @@ class LongestIncreasingSubsequence {
         let res = lengthOfLIS(nums)
         print(res)
     }
-    
+
     // Using Stack
     //Time Complexity: O(nlogn) || Space Compelxity: O(n)
     func lengthOfLIS(_ nums: [Int]) -> Int {
@@ -50,19 +50,17 @@ class LongestIncreasingSubsequence {
     
     //Time Complexity: O(n^2) || Space Compelxity: O(n)
     func lengthOfLIS2(_ nums: [Int]) -> Int {
+        var maxLength = 1
         var dp = [Int](repeating: 1, count: nums.count)
-        var maxLength = 0
-        for i in 1..<nums.count {
+        for i in 0..<nums.count {
             for j in 0..<i {
                 if nums[j] < nums[i] {
-                    if dp[j] + 1 > dp[i] {
-                        dp[i] = dp[j] + 1
-                        maxLength = max(maxLength, dp[i])
-                    }
+                    dp[i] = max(dp[i], dp[j] + 1)
                 }
             }
+            maxLength = max(maxLength, dp[i])
         }
         return maxLength
     }
-    
+
 }
