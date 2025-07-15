@@ -44,11 +44,11 @@ class SubsetsII {
             tempSet.removeLast()
         }
     }
-
+    
     func backTracking2(_ nums: [Int],
-                      _ result: inout [[Int]],
-                      _ tempSet: inout [Int],
-                      _ startIndex: Int) {
+                       _ result: inout [[Int]],
+                       _ tempSet: inout [Int],
+                       _ startIndex: Int) {
         result.append(tempSet)
         for i in startIndex..<nums.count {
             if i > startIndex, nums[i] == nums[i-1] {
@@ -57,6 +57,29 @@ class SubsetsII {
             tempSet.append(nums[i])
             backTracking(nums, &result, &tempSet, i+1)
             tempSet.removeLast()
+        }
+    }
+    
+    func subsetsWithDup3(_ nums: [Int]) -> [[Int]] {
+        var result = [[Int]]()
+        let sortedNums = nums.sorted()
+        backTracking3(sortedNums, &result, [], 0)
+        return result
+    }
+    
+    func backTracking3(_ nums: [Int],
+                       _ result: inout [[Int]],
+                       _ tempSet: [Int],
+                       _ startIndex: Int) {
+        result.append(tempSet)
+        for i in startIndex..<nums.count {
+            if i > startIndex, nums[i] == nums[i-1] {
+                continue
+            }
+            var tempSet = tempSet
+            tempSet.append(nums[i])
+            backTracking3(nums, &result, tempSet, i+1)
+            //tempSet.removeLast()
         }
     }
     
