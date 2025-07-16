@@ -39,5 +39,4 @@ class LongestValidParentheses {
         return result
     }
     
-    
 }
