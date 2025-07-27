@@ -68,4 +68,28 @@ class HappyNumber {
         return isHappy(sum)
     }
     
+    func isHappy3(_ n: Int) -> Bool {
+        var set = Set<Int>()
+        return isHappyHelper(n, &set)
+    }
+    
+    func isHappyHelper(_ n: Int, _ set: inout Set<Int>) -> Bool {
+        if n == 1 {
+            return true
+        }
+        if set.contains(n) {
+            return false
+        }
+        set.insert(n)
+        var n = n
+        var res = 0
+        while n > 0 {
+            let carry = n % 10
+            res += carry * carry
+            n = n/10
+        }
+        
+        return isHappyHelper(res, &set)
+    }
+    
 }
