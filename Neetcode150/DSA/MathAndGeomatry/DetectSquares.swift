@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/detect-squares/
 //https://neetcode.io/problems/count-squares
+//https://www.youtube.com/watch?v=bahebearrDc
 class DetectSquaresTest {
     
     init() {
@@ -44,6 +45,10 @@ class DetectSquares {
         hashMap[point, default: 0] += 1
     }
     
+     // x,y = point(0), point[1]
+     // x1, y1 = key[0], key[1]
+     // x, y1 = [point[0], key[1]]
+     // x1, y = [key[0], point[1]]
     // MARK: Time Complexity: O(n) || Space Compelxity: O(n)
     func count(_ point: [Int]) -> Int {
         var result = 0
