@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/powx-n/
 //https://neetcode.io/problems/pow-x-n
+//https://www.youtube.com/watch?v=1TtWF2ZLNzk
 class PowOfxn {
     
     init() {
