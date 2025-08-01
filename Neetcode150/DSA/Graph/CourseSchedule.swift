@@ -43,11 +43,11 @@ class CourseSchedule {
             }
         }
         
-        var array = [Int]()
+        var completedCourse = 0
         
         while !queue.isEmpty {
             let current = queue.removeFirst()
-            array.append(current)
+            completedCourse += 1
             
             for neighbour in adjacencyList[current] {
                 inDegrees[neighbour] -= 1
@@ -57,7 +57,7 @@ class CourseSchedule {
             }
             
         }
-        return array.count == numCourses
+        return completedCourse == numCourses
     }
     
     func addDEdge(_ u: Int, _ v: Int, _ adj: inout [[Int]]) {
