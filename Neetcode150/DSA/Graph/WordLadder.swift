@@ -7,14 +7,15 @@
 
 //https://leetcode.com/problems/word-ladder/
 //https://neetcode.io/problems/word-ladder
+//https://www.youtube.com/watch?v=zjR2WGbBA2k
 class WordLadder {
     
     private let alphabets = "abcdefghijklmnopqrstuvwxyz"
     
     init() {
-//        Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
-//        Output: 5
-//        Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
+        //        Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+        //        Output: 5
+        //        Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
         runTest()
     }
     
