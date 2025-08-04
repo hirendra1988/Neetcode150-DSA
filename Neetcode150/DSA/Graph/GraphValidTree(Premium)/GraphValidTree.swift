@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/graph-valid-tree/description/
 //https://neetcode.io/problems/valid-tree
+//https://www.youtube.com/watch?v=Kptz-NVA2RE&t=9s
 class GraphValidTree {
     var parent = [Int]()
     init() {
