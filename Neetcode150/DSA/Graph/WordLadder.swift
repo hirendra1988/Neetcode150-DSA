@@ -57,5 +57,35 @@ class WordLadder {
         }
         return 0
     }
+
+    func ladderLength2(_ beginWord: String, _ endWord: String, _ wordList: [String]) -> Int {
+        var wordSet = Set(wordList)
+        if !wordSet.contains(endWord) {
+            return 0
+        }
+        var queue = [(String, Int)]()
+        queue.append((beginWord, 1))
+        
+        while !queue.isEmpty {
+            let (word, step) = queue.removeFirst()
+            if word == endWord {
+                return step
+            }
+            var wordChars = Array(word)
+            for i in 0..<wordChars.count {
+                let originalWord = wordChars[i]
+                for char in alphabets where char != originalWord {
+                    wordChars[i] = char
+                    let wordStr = String(wordChars)
+                    if wordSet.contains(wordStr) {
+                        wordSet.remove(wordStr)
+                        queue.append((wordStr, step + 1))
+                    }
+                }
+                wordChars[i] = originalWord
+            }
+        }
+        return 0
+    }
     
 }
