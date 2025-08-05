@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/network-delay-time/
 //https://neetcode.io/problems/network-delay-time
+//https://www.youtube.com/watch?v=n551TcPWSH8&t=418s
 class NetworkDelayTime {
     
     class Node {
@@ -43,6 +44,7 @@ class NetworkDelayTime {
         d[k] = 0
         
         for _ in 0..<n {
+    // Or for _ in 1...n {
             var u = -1
             for j in 1...n {
                 if !block[j] && (u == -1 || d[j] < d[u]) {
