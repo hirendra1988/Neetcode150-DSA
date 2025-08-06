@@ -38,7 +38,7 @@ class CheapestFlights {
     func findCheapestPrice(_ n: Int, _ flights: [[Int]], _ src: Int, _ dst: Int, _ k: Int) -> Int {
         var d = [Int](repeating: Int.max, count: n)
         d[src] = 0
-        for _ in 0...k {
+        for _ in 0..<k+1 {
             var temp = d
             for flight in flights {
                 let source = flight[0]
