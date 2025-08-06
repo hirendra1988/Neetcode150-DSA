@@ -135,4 +135,49 @@ class MinCostConnectAllPoints {
         }
         print("\n")
     }
+    
+    func minCostConnectPoints2(_ points: [[Int]]) -> Int {
+        let n = points.count
+        var adj = [[Node]](repeating: [Node](), count: n)
+        for i in 0..<points.count {
+            let x1 = points[i][0]
+            let y1 = points[i][1]
+            for j in i+1..<points.count {
+                let x2 = points[j][0]
+                let y2 = points[j][1]
+                
+                let weight = abs(x1-x2) + abs(y1-y2)
+                addUEdge(i, j, weight, &adj)
+            }
+        }
+        
+        var keys = [Bool](repeating: false, count: n)
+        var dist = [Int](repeating: Int.max, count: n)
+        dist[0] = 0
+        var result = 0
+        
+        for i in 0..<n {
+            var u = -1
+            for j in 0..<n {
+                if !keys[j] && (u == -1 || dist[j] < dist[u]) {
+                    u = j
+                }
+            }
+            
+            if u == -1 {
+                break
+            }
+            
+            keys[u] = true
+            result += dist[u]
+            
+            for node in adj[u] {
+                if !keys[node.vertex] && dist[u] != Int.max && node.weight < dist[node.vertex] {
+                    dist[node.vertex] = node.weight
+                }
+            }
+        }
+        return result
+    }
+
 }
