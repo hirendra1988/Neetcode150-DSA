@@ -66,4 +66,19 @@ class SudokuSolve {
         return true
     }
     
+    func validSudoku2(_ board: [[Character]], _ digit: Character, _ row: Int, _ col: Int) -> Bool {
+        for i in 0..<9 {
+            if board[row][i] == digit { return false } // row
+            if board[i][col] == digit { return false } // col
+        }
+        let startRow = (row/3)*3
+        let startCol = (col/3)*3
+        for r in startRow..<startRow+3 {
+            for c in startCol..<startCol+3 {
+                if board[r][c] == digit { return false }
+            }
+        }
+        return true
+    }
+    
 }
