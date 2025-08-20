@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		68A999542E51C0D5006D3CB5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A999532E51C0D5006D3CB5 /* Accelerate.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6836F1F12CFE004D00523E90 /* Neetcode150.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neetcode150.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68A999532E51C0D5006D3CB5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A999542E51C0D5006D3CB5 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				6836F1F32CFE004D00523E90 /* Neetcode150 */,
+				68A999522E51C0D5006D3CB5 /* Frameworks */,
 				6836F1F22CFE004D00523E90 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +63,14 @@
 				6836F1F12CFE004D00523E90 /* Neetcode150.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		68A999522E51C0D5006D3CB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68A999532E51C0D5006D3CB5 /* Accelerate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
