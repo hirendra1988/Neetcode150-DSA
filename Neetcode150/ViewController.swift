@@ -13,10 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         //TicTacToe()
-      
-        LongestCommonPrefix()
-
+        //LongestCommonPrefix()
+        MajorityElement()
     }
-  
-
 }
