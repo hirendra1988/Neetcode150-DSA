@@ -5,6 +5,8 @@
 //  Created by Hirendra Sharma on 24/08/25.
 //
 
+//https://neetcode.io/problems/majority-element?list=neetcode250
+//https://leetcode.com/problems/design-hashset/
 class MajorityElement {
     
     init() {
