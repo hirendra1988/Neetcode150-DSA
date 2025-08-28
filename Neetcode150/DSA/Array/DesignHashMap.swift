@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/design-hashmap/submissions/1751576807/
 //https://neetcode.io/problems/design-hashmap?list=neetcode250
+//https://www.youtube.com/watch?v=cNWsgbKwwoU
 class DesignHashMap {
     
     init() {

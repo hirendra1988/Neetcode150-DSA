@@ -14,6 +14,6 @@ class ViewController: UIViewController {
 
         //TicTacToe()
         //LongestCommonPrefix()
-        DesignHashMap()
+        SortArray()
     }
 }
