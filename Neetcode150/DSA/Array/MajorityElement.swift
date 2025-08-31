@@ -20,10 +20,30 @@ class MajorityElement {
         let res = majorityElement(nums)
         print(res)
     }
-    
+
+    func majorityElement(_ nums: [Int]) -> Int {
+        var result = 0      // Stores the current candidate for majority element
+        var count = 0       // Balance counter
+        
+        for num in nums {
+            if count == 0 {
+                // If no candidate, choose current number
+                result = num
+                count = 1
+            } else if num == result {
+                // If current number matches candidate, increase count
+                count += 1
+            } else {
+                // Otherwise, decrease count (cancel out one occurrence)
+                count -= 1
+            }
+        }
+        return result
+    }
+
     //Boyer–Moore Majority Vote Algorithm
     //Time Complexity: O(n) || Space Compelxity: O(1)
-    func majorityElement(_ nums: [Int]) -> Int {
+    func majorityElement1(_ nums: [Int]) -> Int {
         var result = 0
         var count = 0
         for num in nums {
