@@ -172,6 +172,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -warn-concurrency -Xfrontend -strict-concurrency=complete";
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.neetcode.Neetcode150;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
