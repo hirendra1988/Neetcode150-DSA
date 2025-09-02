@@ -20,6 +20,7 @@ class RemoveDuplicatesFromSortedList {
         print(nums)
     }
     
+    // Time Complexity: O(n) || Space Compelxity: O(1)
     func removeDuplicates(_ nums: inout [Int]) -> Int {
         if nums.isEmpty {
             return 0
