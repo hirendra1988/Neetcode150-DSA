@@ -21,28 +21,21 @@ class MergeStringsAlternately {
     
     // Time Complexity: O(m+n) || Space Compelxity: O(1)
     func mergeAlternately(_ word1: String, _ word2: String) -> String {
-        var wordOneIndex = 0
-        var wordTwoIndex = 0
         let word1Arr = Array(word1)
         let word2Arr = Array(word2)
+        var i = 0, j = 0
         
         var result = ""
-        while wordOneIndex < word1Arr.count, wordTwoIndex < word2Arr.count {
-            result.append(String(word1Arr[wordOneIndex]))
-            result.append(String(word2Arr[wordTwoIndex]))
-            
-            wordOneIndex += 1
-            wordTwoIndex += 1
-        }
         
-        while wordOneIndex < word1Arr.count {
-            result.append(String(word1Arr[wordOneIndex]))
-            wordOneIndex += 1
-        }
-        
-        while wordTwoIndex < word2Arr.count {
-            result.append(String(word2Arr[wordTwoIndex]))
-            wordTwoIndex += 1
+        while i < word1Arr.count || j < word2Arr.count {
+            if i < word1Arr.count {
+                result.append(word1Arr[i])
+                i += 1
+            }
+            if j < word2Arr.count {
+                result.append(word2Arr[j])
+                j += 1
+            }
         }
         
         return result
