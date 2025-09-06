@@ -26,6 +26,8 @@ class StackUsingQueue {
     
 }
 
+// Using 2 queue
+//Time Complexity: O(n) || Space Compelxity: O(n)
 class MyStackUsingQueue {
 
     var q1 = [Int]()
@@ -53,5 +55,37 @@ class MyStackUsingQueue {
     
     func empty() -> Bool {
         return q1.isEmpty
+    }
+}
+
+// Using single queue
+class MyStackUsingQueue2 {
+    var q = [Int]()
+    
+    init() {}
+    
+    // Push element x onto stack.
+    func push(_ x: Int) {
+        q.append(x)  // Step 1: enqueue
+        
+        // Step 2: rotate (move all previous elements behind the new one)
+        for _ in 0..<(q.count - 1) {
+            q.append(q.removeFirst())
+        }
+    }
+    
+    // Removes the element on top of the stack and returns it.
+    func pop() -> Int {
+        return q.removeFirst()
+    }
+    
+    // Get the top element.
+    func top() -> Int {
+        return q.first!
+    }
+    
+    // Returns whether the stack is empty.
+    func empty() -> Bool {
+        return q.isEmpty
     }
 }
