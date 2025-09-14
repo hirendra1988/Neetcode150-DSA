@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/boats-to-save-people/description/
 //https://neetcode.io/problems/boats-to-save-people?list=neetcode250
+//https://www.youtube.com/watch?v=PCGdb-46H_w
 class BoatsToSave {
     
     init() {
