@@ -12,8 +12,10 @@ class ArrayDSA {
     }
     
     func runTest() {
-        let nums1 = [1,2,2,1], nums2 = [2,2]
-        print(intersection(nums1, nums2))
+//        let nums1 = [1,2,2,1], nums2 = [2,2]
+//        print(intersection(nums1, nums2))
+        
+        print(GCDAndLCM(12, value2: 18))
     }
     
     //    Input: nums1 = [1,2,2,1], nums2 = [2,2]
@@ -39,6 +41,21 @@ class ArrayDSA {
             }
         }
         return Array(resultSet)
+    }
+    
+    // Input: 12, 18
+    // Output: GCD = 6, LCM = 36
+    func GCDAndLCM(_ value1: Int, value2: Int) -> [Int] {
+        var a = value1
+        var b = value2
+        while b != 0 {
+            let temp = b
+            b = a % b
+            a = temp
+        }
+        let gcm = a
+        let lcm = (value1 * value2) / gcm
+        return [gcm, lcm]
     }
     
 }
