@@ -11,9 +11,9 @@
 class NQueens {
     
     init() {
-//        Input: n = 4
-//        Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
-//        Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
+        //        Input: n = 4
+        //        Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+        //        Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
         runTest()
     }
     
@@ -61,6 +61,59 @@ class NQueens {
             negDiagnal.remove(r-c)
             board[r][c] = "."
         }
+    }
+    
+    func solveNQueens2(_ n: Int) -> [[String]] {
+        var result = [[String]]()
+        var board = [[Character]](repeating: [Character](repeating: ".", count: n), count: n)
+        backTracking(&board, n, 0, &result)
+        return result
+    }
+    
+    func backTracking(_ board: inout [[Character]], _ n: Int, _ row: Int, _ result: inout [[String]]) {
+        if row == n {
+            result.append(board.map { String($0) })
+            return
+        }
+        for col in 0..<n {
+            if isValid(row, col, board) {
+                board[row][col] = "Q"
+                backTracking(&board, n, row+1, &result)
+                board[row][col] = "."
+            }
+        }
+    }
+    
+    func isValid(_ row: Int, _ col: Int, _ board: [[Character]]) -> Bool {
+        // check column
+        for i in 0..<row {
+            if board[i][col] == "Q" {
+                return false
+            }
+        }
+        
+        // check upper-left diagonal
+        var r = row - 1
+        var c = col - 1
+        while r >= 0, c >= 0 {
+            if board[r][c] == "Q" {
+                return false
+            }
+            r -= 1
+            c -= 1
+        }
+        
+        // check upper-right diagonal
+        r = row - 1
+        c = col + 1
+        while r >= 0, c < board.count {
+            if board[r][c] == "Q" {
+                return false
+            }
+            r -= 1
+            c += 1
+        }
+        return true
     }
     
 }
