@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //TicTacToe()
+        TicTacToe2(3)
         //LongestCommonPrefix()
-        ArrayDSA()
+        //ArrayDSA()
        
     }
 

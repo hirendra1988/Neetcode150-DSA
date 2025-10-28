@@ -30,7 +30,7 @@ class SudokuSolve {
     }
     
     func solveSudoku(_ board: inout [[Character]]) {
-        backTracking(&board)
+        _ = backTracking(&board)
     }
     
     func backTracking(_ board: inout [[Character]]) -> Bool {
@@ -55,7 +55,10 @@ class SudokuSolve {
         return true
     }
     
-    func validSudoku(_ board: inout [[Character]], _ row: Int, _ col: Int, _ digit: Character) -> Bool {
+    func validSudoku(_ board: inout [[Character]],
+                     _ row: Int,
+                     _ col: Int,
+                     _ digit: Character) -> Bool {
         for i in 0..<9 {
             if board[row][i] == digit { return false }
             if board[i][col] == digit { return false }
