@@ -21,7 +21,19 @@ class ConcatenationOfArray {
         print(res)
     }
     
+    //Time Complexity: O(n) || Space Compelxity: O(n)
     func getConcatenation(_ nums: [Int]) -> [Int] {
+        let n = nums.count
+        var ans = [Int](repeating: 0, count: 2*n)
+        for i in 0..<n {
+            ans[i] = nums[i]
+            ans[i+n] = nums[i]
+        }
+        return ans
+    }
+    
+    //Time Complexity: O(n) || Space Compelxity: O(n)
+    func getConcatenation2(_ nums: [Int]) -> [Int] {
         return nums + nums
     }
     
