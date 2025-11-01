@@ -7,6 +7,7 @@
 
 //https://neetcode.io/problems/majority-element?list=neetcode250
 //https://leetcode.com/problems/design-hashset/
+//https://www.youtube.com/watch?v=wD7fs5P_MVo
 class MajorityElement {
     
     init() {
@@ -53,6 +54,24 @@ class MajorityElement {
             count += result == num ? 1 : -1
         }
         return result
+    }
+    
+    //Boyer–Moore Majority Vote Algorithm
+    //Time Complexity: O(n) || Space Compelxity: O(1)
+    func majorityElement3(_ nums: [Int]) -> Int {
+        var majorityCandidate = nums[0]
+        var votes = 1
+        for i in 1..<nums.count {
+            if votes == 0 {
+                majorityCandidate = nums[i]
+                votes = 1
+            } else if majorityCandidate == nums[i] {
+                votes += 1
+            } else {
+                votes -= 1
+            }
+        }
+        return majorityCandidate
     }
     
     //Time Complexity: O(n) || Space Compelxity: O(n)
