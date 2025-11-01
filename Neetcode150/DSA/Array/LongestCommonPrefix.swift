@@ -20,6 +20,39 @@ class LongestCommonPrefix {
         let result = longestCommonPrefix(strs)
         print(result)
     }
+    
+    // Time Complexity: O(m*n) || Space Compelxity: O(1)
+//    n = number of strings in the array
+//    m = length of the longest string (worst-case string length)
+    func longestCommonPrefix(_ strs: [String]) -> String {
+        guard var prefix = strs.first else {return ""}
+        for i in strs.dropFirst() {
+            while !i.hasPrefix(prefix) {
+                prefix.removeLast()
+                if prefix.isEmpty {return ""}
+            }
+        }
+        return prefix
+    }
+    
+    //Space: O(N + M)
+    // Time: O(N log N * K + M)
+    //K = average string length (needed for lexicographic comparisons).
+    func longestCommonPrefix1(_ strs: [String]) -> String {
+        let sortedStrs = strs.sorted()
+        let first = Array(sortedStrs.first!)
+        let last = Array(sortedStrs.last!)
+        
+        var result = ""
+        
+        for i in 0..<first.count {
+            if first[i] != last[i] {
+                break
+            }
+            result.append(first[i])
+        }
+        return result
+    }
 
     //Time: O(N * M)
     //Space: O(1) (ignoring output string).
@@ -38,25 +71,6 @@ class LongestCommonPrefix {
             result.append(String(char))
         }
         
-        return result
-    }
-    
-    //Space: O(N + M)
-    // Time: O(N log N * K + M)
-    //K = average string length (needed for lexicographic comparisons).
-    func longestCommonPrefix(_ strs: [String]) -> String {
-        let sortedStrs = strs.sorted()
-        let first = Array(sortedStrs.first!)
-        let last = Array(sortedStrs.last!)
-        
-        var result = ""
-        
-        for i in 0..<first.count {
-            if first[i] != last[i] {
-                break
-            }
-            result.append(first[i])
-        }
         return result
     }
     
