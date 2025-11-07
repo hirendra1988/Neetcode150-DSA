@@ -22,7 +22,7 @@ class ValidPalindromeII {
     func validPalindrome(_ s: String) -> Bool {
         var left = 0
         var right = s.count - 1
-        var sChars = Array(s)
+        let sChars = Array(s)
         while left < right {
             if sChars[left] != sChars[right] {
                 return validPalindromeHelper(sChars, left+1, right) || validPalindromeHelper(sChars, left, right - 1)

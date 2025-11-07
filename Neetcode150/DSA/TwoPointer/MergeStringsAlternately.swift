@@ -19,7 +19,7 @@ class MergeStringsAlternately {
         print(result)
     }
     
-    // Time Complexity: O(m+n) || Space Compelxity: O(1)
+    // Time Complexity: O(m+n) || Space Compelxity: O(m+n)
     func mergeAlternately(_ word1: String, _ word2: String) -> String {
         let word1Arr = Array(word1)
         let word2Arr = Array(word2)

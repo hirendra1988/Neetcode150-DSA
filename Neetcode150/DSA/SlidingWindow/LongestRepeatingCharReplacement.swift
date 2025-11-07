@@ -41,5 +41,26 @@ class LongestRepeatingCharReplacement {
         }
         return res
     }
+
+    func characterReplacement2(_ s: String, _ k: Int) -> Int {
+        var hashMap = [Character: Int]()
+        var maxFreq = 0
+        var sChars = Array(s)
+        var left = 0
+        var result = 0
+        for right in 0..<sChars.count {
+            hashMap[sChars[right], default: 0] += 1
+            maxFreq = max(maxFreq, hashMap[sChars[right], default: 0])
+            var windowSize = right - left + 1
+            var temp = windowSize - maxFreq
+            
+            if temp > k {
+                hashMap[sChars[left], default: 0] -= 1
+                left += 1
+            }
+            result = right - left + 1
+        }
+        return result
+    }
     
 }
