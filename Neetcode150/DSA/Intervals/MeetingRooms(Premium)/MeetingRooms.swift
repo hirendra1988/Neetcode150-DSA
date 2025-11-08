@@ -48,13 +48,29 @@ class MeetingRooms {
         if intervals.isEmpty {
             return true
         }
-        var sortedIntervals = intervals.sorted { $0[0] < $1[0] }
+        let sortedIntervals = intervals.sorted { $0[0] < $1[0] }
         for i in 0..<sortedIntervals.count - 1 {
             let firstNext = sortedIntervals[i][1]
             let nextPrev = sortedIntervals[i+1][0]
             if nextPrev < firstNext {
                 return false
             }
+        }
+        return true
+    }
+    
+    func canAttendMeetings3(_ intervals: [[Int]]) -> Bool {
+        if intervals.isEmpty {
+            return true
+        }
+        var sortedInterval = intervals.sorted { $0[0] < $1[0] }
+        var tempVal = sortedInterval[0][1]
+        for i in 1..<sortedInterval.count {
+            let nextPrev = sortedInterval[i][0]
+            if tempVal > nextPrev {
+                return false
+            }
+            tempVal = max(tempVal, sortedInterval[i][1])
         }
         return true
     }
