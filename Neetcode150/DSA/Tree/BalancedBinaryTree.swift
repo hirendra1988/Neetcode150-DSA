@@ -40,6 +40,27 @@ class BalancedBinaryTree {
         return max(left, right) + 1
     }
     
+    func isBalanced2(_ root: TreeNode?) -> Bool {
+        return isBalancedHelper2(root) != -1
+    }
+    
+    func isBalancedHelper2(_ root: TreeNode?) -> Int {
+        guard let root = root else { return 0 }
+        let left = isBalancedHelper2(root.left)
+        if left == -1 {
+            return -1
+        }
+        let right = isBalancedHelper2(root.right)
+        if right == -1 {
+            return -1
+        }
+        if abs(left - right) > 1 {
+            return -1
+        }
+        
+        return max(left, right) + 1
+    }
+    
     func createRootTree() -> TreeNode? {
         let n1 = TreeNode(1)
         let n2 = TreeNode(2)
