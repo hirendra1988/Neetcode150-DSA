@@ -51,7 +51,7 @@ class CloneGraph {
         hashMap[node.val] = Node(node.val)
         
         while !queue.isEmpty {
-            var firstNode = queue.removeFirst()
+            let firstNode = queue.removeFirst()
             for neighbor in firstNode.neighbors {
                 if hashMap[neighbor!.val] == nil {
                     hashMap[neighbor!.val] = Node(neighbor!.val)
