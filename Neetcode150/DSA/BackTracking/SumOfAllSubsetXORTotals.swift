@@ -31,4 +31,14 @@ class SumOfAllSubsetXORTotals {
         }
         return sum
     }
+
+    func backTracking2(_ nums: [Int], _ start: Int, _ xor: Int) -> Int {
+        if start == nums.count {
+            return xor
+        }
+        let pick = backTracking2(nums, start + 1, xor ^ nums[start])
+        let noPick = backTracking2(nums, start + 1, xor)
+        return pick + noPick
+    }
+
 }
