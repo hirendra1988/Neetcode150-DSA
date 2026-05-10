@@ -52,7 +52,7 @@ class MajorityElementII {
             }
         }
         
-        var thresold = nums.count / 3
+        let thresold = nums.count / 3
         var result = [Int]()
         
         if count1 > thresold {

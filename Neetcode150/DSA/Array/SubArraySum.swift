@@ -7,6 +7,7 @@
 
 //https://leetcode.com/problems/subarray-sum-equals-k/submissions/1762896468/
 //https://neetcode.io/problems/subarray-sum-equals-k?list=neetcode250
+//https://www.youtube.com/watch?v=YxRmeRyVQm4
 class SubArraySum {
     
     init() {

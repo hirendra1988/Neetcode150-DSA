@@ -42,4 +42,18 @@ class GroupAnagrams {
         }
         return Array(result.values)
     }
+
+    //Time Complexity: O(n * k) || Space Compelxity: O(n * k)
+    func groupAnagrams3(_ strs: [String]) -> [[String]] {
+        var hashMap = [[Int]: [String]]()
+        for str in strs {
+            var count = [Int](repeating: 0, count: 26)
+            for char in str {
+                let index = Int(char.asciiValue! - Character("a").asciiValue!)
+                count[index] += 1
+            }
+            hashMap[count, default: []] += [str]
+        }
+        return Array(hashMap.values)
+    }
 }
